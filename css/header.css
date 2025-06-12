@@ -1,0 +1,24 @@
+#header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+#header h1 {
+    font-size: 2.5em;
+    color: #343a40;
+}
+#header p {
+    font-size: 1.2em;
+    color: #6c757d;
+    margin-top: 10px;
+}
+#header a {
+    color: #007bff;
+    text-decoration: none;
+}
+#header a:hover {
+    text-decoration: underline;
+}
+ 
+

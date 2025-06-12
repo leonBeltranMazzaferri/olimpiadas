@@ -1,0 +1,65 @@
+.destinos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.destination-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    height: 300px;
+}
+.moscu{
+    background-image: url(/img/moscu.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+
+}
+.grecia{
+    background-image: url(/img/grecia.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+.rio{
+    background-image: url(/img/rio.webp);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+.barcelona{
+    background-image: url(/img/barcelona.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+.nueva-york{
+    background-image: url(/img/nueva-york.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+.roma{
+    background-image: url(/img/roma.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+#viaje{
+    border-radius: 10px;
+    height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#vieje:hover{
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}

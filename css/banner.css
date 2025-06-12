@@ -1,0 +1,16 @@
+.banner{
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #343a40;
+    border-bottom: 1px solid #dee2e6;
+    background-image: url(/img/96076e3f-c24f-4471-b953-b502e18064ea.png);
+    filter: blur( 0px );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    padding-top: 300px; 
+    padding-bottom: 100px;
+}
