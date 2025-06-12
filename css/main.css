@@ -1,65 +1,57 @@
-.destinos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.title-catalogo{
+    text-align: left;
+    font-size: 2rem;
+    margin: 30px 10px 0 20px;
+    color: #333;
 }
-.destination-list{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 60px;
-    height: 300px;
-}
-.moscu{
-    background-image: url(/img/moscu.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 300px;
 
-}
-.grecia{
-    background-image: url(/img/grecia.jpg);
-    background-size: cover;
-    background-position: center;
+.card {
     width: 300px;
-}
-.rio{
-    background-image: url(/img/rio.webp);
-    background-size: cover;
-    background-position: center;
-    width: 300px;
-}
-.barcelona{
-    background-image: url(/img/barcelona.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 300px;
-}
-.nueva-york{
-    background-image: url(/img/nueva-york.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 300px;
-}
-.roma{
-    background-image: url(/img/roma.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 300px;
-}
-#viaje{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
-    height: 400px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
-#vieje:hover{
-    transform: scale(1.1);
-    transition: all 0.1s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.571);
+}
+
+.imagen {
+    height: 40%;
+    background-size: cover;
+    background-position: center;
+}
+.barcelona { background-image: url(/img/barcelona.jpg); }
+.nueva-york { background-image: url(/img/nueva-york.jpg); }
+.roma { background-image: url(/img/roma.jpg); }
+.grecia { background-image: url(/img/grecia.jpg); }
+.rio { background-image: url(/img/rio.webp); }
+.moscu { background-image: url(/img/moscu.jpg); }
+.info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.tipo-viaje {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: fit-content;
+    margin: 5px 0;
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-top: 20px;
 }
