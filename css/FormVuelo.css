@@ -2,15 +2,16 @@ form {
     flex-wrap: wrap;
     gap: 15px;
     background-color: #2c0077; /* fondo violeta */
-    padding: 20px;
+    padding: 30px;
+    padding-top: 5px ;
     border-radius: 12px;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
-    width: 65%;
+    width: 60%;
     position: relative;
-    top : 20px; 
-    left: 300px;
+    top : 35px; 
+    left: 350px;
     max-height: 180px;
 }
 form input[type="text"],
@@ -26,7 +27,8 @@ form input[type="date"] {
 }
 
 form button[type="submit"] {
-    background-color: #e50914; /* rojo tipo "Netflix" */
+    background-color: #e50914;
+    height: 50px;
     color: white;
     border: none;
     border-radius: 20px;
@@ -35,6 +37,9 @@ form button[type="submit"] {
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s ease;
+        /* position: absolute;
+        right: 40px;
+        bottom: 35px ; */
 }
 
 form button[type="submit"]:hover {
@@ -48,8 +53,10 @@ form button[type="submit"]:active {
     gap: 45px;
     background-color: transparent;
 }
+
 #tipo-viaje{
-    color: red;
+    color: black;
+    font-weight: 900;
     cursor: pointer;                                                                                                          
     width: 100px;
     height: 35px;
