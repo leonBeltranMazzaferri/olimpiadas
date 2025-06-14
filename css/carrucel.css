@@ -32,12 +32,12 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: white;
+    background-color: gray;
     border: none;
     font-size: 2rem;
     cursor: pointer;
     z-index: 10;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10%;
 }
 

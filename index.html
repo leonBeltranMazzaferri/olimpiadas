@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aerolinas</title>
+    
     <link rel="stylesheet" href="css/average.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -12,16 +13,18 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/carrucel.css">
     <link rel="stylesheet" href="css/FormVuelo.css">
+
+    <link rel="shortcut icon" href="/img/iconos/snowflake.png" type="image/x-icon">
 </head>
 <body>
     <header id="header" >
-        <h1>Aerolinas</h1>
+        <h1>Aerolineas</h1>
         <nav id="nav">
             <ul  class="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="carrito.html">MIS VIAJES (CARRITO)</a></li>
-                <li><a href="singUP.html">PERFIL(CREAR CUENTA)</a></li>
-                <li><a href="log.html">PERFIL(LOGIN)</a></li>
+                <li><a href="singUP.html"><img src="img/iconos/user.png">(CREAR CUENTA)</a></li>
+                <li><a href="log.html"><img src="img/iconos/user.png">(LOGIN)</a></li>
             </ul>
         </nav>
     </header>
@@ -29,11 +32,20 @@
     <main>
 <section class="banner">
 <form action="#search" method="get">
+    <div class="tipo-viaje">
+    <h3>Vuelos</h3>
+    <input type="button" id="tipo-viaje" name="IdayVuelta" placeholder="Ida y Vuelta">
+    <input type="button" id="tipo-viaje" name="Ida" placeholder="solo inda">
+    <input type="button" id="tipo-viaje" name="Multidestino" placeholder="Multidestino">
+    </div>
+    
+    <div class="datos-viaje">
     <input type="text" name="origen" placeholder="Ingresá desde dónde salís">
     <input type="text" name="destino" placeholder="Ingresá hacia dónde vas">
     <input type="date" name="salida" placeholder="Ida">
     <input type="date" name="vuelta" placeholder="Vuelta">
     <input type="text" name="pasajeros" placeholder="1 persona, Económica">
+    </div>
     <button type="submit">Buscar</button>
 </form>
 
@@ -42,7 +54,9 @@
 <section id="destinos"> 
     <h1 class="title-catalogo" >Paquetes de viajes: vuelo + hotel con Aerolíneas Argentinas</h1>
     <div style="position: relative; overflow: hidden;">
+
         <button class="carousel-btn left" onclick="scrollDestinos(-0.5)">❮</button>
+
         <ul class="destination-list" id="carousel">
             <li class="card" id="viaje">
                 <div class="imagen barcelona"></div>
@@ -105,7 +119,9 @@
                 </div>
             </li>
         </ul>
+
         <button class="carousel-btn right" onclick="scrollDestinos(0.5)">❯</button>
+
     </div>
 </section>
 
