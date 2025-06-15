@@ -40,6 +40,17 @@ DB.connect((err) => {
 /**
  * Middleware para proteger rutas que requieren autenticación.
  * Verifica el token JWT en las cookies.
+ * 
+ * TUTORIAL:
+ * - Cuando una ruta usa este middleware, si el usuario está autenticado,
+ *   los datos del usuario quedan disponibles en req.user.
+ * - El token se genera en /api/login y contiene:
+ *      id_usuario, email, username, rolUser
+ * - Puedes acceder a estos datos en cualquier ruta protegida así:
+ *      req.user.id_usuario   // id del usuario autenticado
+ *      req.user.username     // nombre del usuario autenticado
+ *      req.user.email        // email del usuario autenticado
+ *      req.user.rolUser      // 1 si es admin, 0 si es cliente
  */
 function authMiddleware(req, res, next) {
     const token = req.cookies.token;
@@ -94,6 +105,11 @@ app.post('/api/register', async (req, res) => {
 /**
  * Login de usuario.
  * Verifica email y contraseña, genera un token JWT y lo guarda en una cookie.
+ * 
+ * TUTORIAL:
+ * - El token generado aquí contiene los datos del usuario.
+ * - El navegador guarda el token en una cookie automáticamente.
+ * - En cada petición protegida, el navegador envía la cookie al backend.
  */
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
@@ -156,9 +172,23 @@ app.post('/api/logout', (req, res) => {
 /**
  * Ruta protegida para comprobar autenticación.
  * Devuelve los datos del usuario si el token es válido.
+ * 
+ * TUTORIAL:
+ * - Aquí puedes ver cómo acceder a los datos del usuario autenticado:
+ *      req.user.id_usuario   // id del usuario autenticado
+ *      req.user.username     // nombre del usuario autenticado
+ *      req.user.email        // email del usuario autenticado
+ *      req.user.rolUser      // 1 si es admin, 0 si es cliente
  */
 app.get('/api/protected', authMiddleware, (req, res) => {
+
+    // Ejemplo: mostrar el id y el nombre del usuario autenticado
+    // Puedes usar estos datos en cualquier ruta protegida
+    // const id = req.user.id_usuario;
+    // const nombre = req.user.username;
+    // res.json({ message: '¡Acceso permitido!', id_usuario: id, nombre: nombre, user: req.user });
     // req.user contiene los datos del token, incluyendo rolUser
+    
     if (req.user.rolUser === 1) {
         // Es admin
         res.json({ message: '¡Acceso permitido! (admin)', user: req.user, tipo: 'admin' });
