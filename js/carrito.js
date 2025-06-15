@@ -14,27 +14,38 @@ function agregarCarrito(id_vuelo) {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-function eliminarCarrito(elemento, id_vuelo) {
+async function eliminarCarrito(id_vuelo) {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
-    elemento.target.parentElement.remove()
-
     let indiceVuelo = carrito.indexOf(id_vuelo)
     carrito.splice(indiceVuelo, 1)
     localStorage.setItem("carrito", JSON.stringify(carrito))
+    await actualizarCarrito()
 }
 
+async function actualizarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    const contenedor = document.getElementById('cart-items')
+    contenedor.innerHTML = ""
 
-window.addEventListener('DOMContentLoaded', () => {
+    carrito.forEach(async id_paquete => {
+        const response = await fetch(`http://localhost:3000/api/paquete?id=${id_paquete}`);
+        const data = await response.json();
+        await renderizarLista(contenedor, data, [
+            "id_paquete",
+            "nombre",
+            "descripcion",
+            "destino",
+            "precio"
+        ], false);        
+    })
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
     let contenedorCarrito = document.querySelector("#cart-items")
     if (contenedorCarrito == undefined) {
         console.log("No es pagina carrito")
         return
     }
 
-    let carrito = JSON.parse(localStorage.getItem("carrito"))
-
-    carrito.forEach(async (idVuelo) => {
-        let vuelo = await obtenerDestino(idVuelo)
-        contenedorCarrito.innerHTML += vuelo
-    });
+    await actualizarCarrito()
 });
