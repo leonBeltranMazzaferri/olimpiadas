@@ -29,12 +29,21 @@
     <main>
 <section class="banner">
 <form action="#search" method="get">
+    <div class="tipo-viaje">
+    <h3>Vuelos</h3>
+    <button type="button" id="tipo-viaje" name="IdayVuelta"> ida y vuelta </button>
+    <button type="button" id="tipo-viaje" name="Ida" > solo ida</button>
+    <button type="button" id="tipo-viaje" name="Multidestino" >Multidestino</button>
+    </div>
+    
+    <div class="datos-viaje">
     <input type="text" name="origen" placeholder="Ingresá desde dónde salís">
     <input type="text" name="destino" placeholder="Ingresá hacia dónde vas">
     <input type="date" name="salida" placeholder="Ida">
     <input type="date" name="vuelta" placeholder="Vuelta">
     <input type="text" name="pasajeros" placeholder="1 persona, Económica">
     <button type="submit">Buscar</button>
+    </div>
 </form>
 
 </section>
