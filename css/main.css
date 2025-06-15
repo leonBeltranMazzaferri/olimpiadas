@@ -12,12 +12,12 @@
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: rgba(176, 224, 230, 0.746);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 .card:hover {
     transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
     box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.571);
 }
 

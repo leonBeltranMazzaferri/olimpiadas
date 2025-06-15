@@ -1,7 +1,14 @@
 .nav-list{
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    max-height: 69px;
+}
+#logo{
+    height: 140px;
+    width: 240px;
 }

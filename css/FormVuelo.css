@@ -8,10 +8,10 @@ form {
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
-    width: 60%;
+    width: 65%;
     position: relative;
-    top : 35px; 
-    left: 350px;
+    top : 230px; 
+    left: 320px;
     max-height: 180px;
 }
 form input[type="text"],
@@ -37,9 +37,6 @@ form button[type="submit"] {
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s ease;
-        /* position: absolute;
-        right: 40px;
-        bottom: 35px ; */
 }
 
 form button[type="submit"]:hover {
