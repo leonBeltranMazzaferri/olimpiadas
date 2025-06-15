@@ -26,12 +26,12 @@
     background-size: cover;
     background-position: center;
 }
-.barcelona { background-image: url(img/barcelona.jpg); }
-.nueva-york { background-image: url(img/nueva-york.jpg); }
-.roma { background-image: url(img/roma.jpg); }
-.grecia { background-image: url(img/grecia.jpg); }
-.rio { background-image: url(img/rio.webp); }
-.moscu { background-image: url(img/moscu.jpg); }
+.barcelona { background-image: url(/img/barcelona.jpg); }
+.nueva-york { background-image: url(/img/nueva-york.jpg); }
+.roma { background-image: url(/img/roma.jpg); }
+.grecia { background-image: url(/img/grecia.jpg); }
+.rio { background-image: url(/img/rio.webp); }
+.moscu { background-image: url(/img/moscu.jpg); }
 .info {
     padding: 10px;
     display: flex;
