@@ -55,7 +55,10 @@
 <section id="destinos"> 
     <h1 class="title-catalogo" >Paquetes de viajes:</h1>
     <div style="position: relative; overflow: hidden;">
-
+        <button class="carousel-btn left" onclick="scrollDestinos(-0.5)"><</button>
+        <ul class="destination-list" id="carousel">
+        </ul>
+        <button class="carousel-btn right" onclick="scrollDestinos(0.5)">></button>
     </div>
 </section>
 
@@ -72,5 +75,6 @@
 
     <script src="js/carrusel.js"></script>
     <script src="js/destinos.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 </html>

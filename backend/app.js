@@ -30,6 +30,17 @@ app.get('/vuelos', (req, res) => {
     })
 })
 
+app.get('/vuelo', (req, res) => {
+    const idVuelo = parseInt(req.query.idVuelo)
+    DB.query('SELECT * FROM vuelos WHERE id_vuelo = ?', [idVuelo], (err, resultado) => {
+        if (err) {
+            res.status(500).json({ error: 'Error al obtener los vuelos' })
+            return
+        }
+        res.json(resultado)
+    })
+})
+
 app.listen(3000, () => {
     console.log('Express escuchando en puerto 3000')
 })
