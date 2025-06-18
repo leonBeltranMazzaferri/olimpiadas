@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logins.css">
+    <title>Registro - Aerolíneas</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Crear Cuenta</div>
+        <form class="form" id="register-form">
+            <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+            <input required class="input" type="password" name="password" id="password" placeholder="Contraseña">
+            <input required class="input" type="text" name="dni" id="dni" placeholder="DNI">
+            <input class="login-button" type="submit" value="Registrarse">
+        </form>
+        <span class="agreement">
+            ¿Ya tienes cuenta? <a href="log.html">Inicia sesión</a>
+        </span>
+    </div>
+
+    <script>
+    document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const correo = document.getElementById('email').value;
+    const contrasena = document.getElementById('password').value;
+    const dni = document.getElementById('dni').value;
+
+    const res = await fetch('http://localhost:3000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo, contrasena, dni })
+    });
+
+    const data = await res.json();
+        if (res.ok) {
+            alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
+            window.location.href = "log.html";
+        } else {
+            alert(data.error || 'Error al registrar usuario');
+        }
+    });
+    </script>
+</body>
+</html>
