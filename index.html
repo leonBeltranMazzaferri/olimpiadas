@@ -20,14 +20,16 @@
     <header id="header" >
         <h1>Aerolineas</h1>
         <nav id="nav">
-            <ul  class="nav-list">
+            <ul class="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="/carrito.html">MIS VIAJES (CARRITO)</a></li>
-                <li><a href="/register.html"><img src="img/iconos/user.png">(CREAR CUENTA)</a></li>
-                <li><a href="/log.html"><img src="img/iconos/user.png">(LOGIN)</a></li>
+                <li id="register-link"><a href="/register.html"><img src="img/iconos/user.png">(CREAR CUENTA)</a></li>
+                <li id="login-link"><a href="/log.html"><img src="img/iconos/user.png">(LOGIN)</a></li>
+                <li id="user-link" style="display:none;"><a href="/user.html"><img src="img/iconos/user.png">(PERFIL)</a></li>
             </ul>
         </nav>
     </header>
+    <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
     
     <main>
 <section class="banner">
@@ -76,5 +78,6 @@
     <script src="js/carrusel.js"></script>
     <script src="js/destinos.js"></script>
     <script src="js/carrito.js"></script>
+    <script src="js/sesion.js"></script>
 </body>
 </html>

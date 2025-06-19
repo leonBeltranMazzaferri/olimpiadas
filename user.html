@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="css/logins.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Bienvenido</div>
+        <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
+        <button id="logout-btn" class="login-button" style="margin-top:20px;">Cerrar sesión</button>
+        <button id="btn-back">Volver</button>
+    </div>
+    <script src="js/user.js"></script>
+    <script>
+        // Cerrar sesión
+        document.getElementById('logout-btn').addEventListener('click', async function() {
+            await fetch('http://localhost:3000/api/logout', {
+                method: 'POST',
+                credentials: 'include'
+            });
+            window.location.href = "index.html";
+        });
+
+        document.getElementById('btn-back').addEventListener('click', function() {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
