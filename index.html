@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>aerolineas</title>
     <link rel="shortcut icon" href="/img/iconos/snowflake.png" type="image/x-icon">
     <link rel="stylesheet" href="css/average.css">
@@ -13,6 +14,21 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/carrucel.css">
     <link rel="stylesheet" href="css/FormVuelo.css">
+=======
+    <title>aerolinas</title>
+    
+    <link rel="stylesheet" href="./css/average.css">
+    <link rel="stylesheet" href="./css/banner.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/carrusel.css">
+    <link rel="stylesheet" href="./css/FormVuelo.css">
+    <link rel="stylesheet" href="./css/paquetes.css">
+
+    <link rel="shortcut icon" href="./img/iconos/snowflake.png" type="image/x-icon">
+>>>>>>> main
 </head>
 <body>
     <header id="header" >
@@ -27,9 +43,9 @@
             </ul>
         </nav>
     </header>
-    <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
     
     <main>
+<<<<<<< HEAD
 <section class="banner">
 <form action="#search" method="get">
     <div class="tipo-viaje">
@@ -48,15 +64,55 @@
     <button type="submit">Buscar</button>
     </div>
 </form>
+=======
+    <section class="banner">
+    <form action="#search" method="get">
+        <div class="tipo-viaje">
+        <h3>Vuelos</h3>
+        <button type="button" id="tipo-viaje" name="IdayVuelta"> ida y vuelta </button>
+        <button type="button" id="tipo-viaje" name="Ida" > solo ida</button>
+        <button type="button" id="tipo-viaje" name="Multidestino" >Multidestino</button>
+        </div>
+        
+        <div class="datos-viaje">
+        <input type="text" name="origen" placeholder="Ingresá desde dónde salís">
+        <input type="text" name="destino" placeholder="Ingresá hacia dónde vas">
+        <input type="date" name="salida" placeholder="Ida">
+        <input type="date" name="vuelta" placeholder="Vuelta">
+        <input type="text" name="pasajeros" placeholder="1 persona, Económica">
+        <button type="submit">Buscar</button>
+        </div>
+        
+    </form>
+>>>>>>> main
 
-</section>
+    </section>
 
 <section id="destinos"> 
     <h1 class="title-catalogo" >Vuela con nosotros en los mejores destinos del mundo</h1>
     <div style="position: relative; overflow: hidden;">
+<<<<<<< HEAD
         <button class="carousel-btn.left" onclick="scrollDestinos(-0.5)">❮</button>
 
         <button class="carousel-btn.right" onclick="scrollDestinos(0.5)">❯</button>
+=======
+        <button class="carousel-btn left" onclick="scrollDestinos(-0.5)"><</button>
+        <ul class="destination-list" id="carousel">
+            <div class="paquete-card">
+                <p class="nombre">Relax en Riviera Maya</p>
+                <p class="descripcion">Descansá 7 días en un resort con todo incluido frente al mar. Incluye vuelos, excursiones a cenotes, Chichén Itzá y entradas a parques temáticos como Xcaret.</p>
+                <p class="destino">Playa del Carmen, México</p>
+                <p class="precio">1380</p>
+            </div>
+            <div class="paquete-card">
+                <p class="nombre">Naturaleza en Islandia</p>
+                <p class="descripcion">Recorré los paisajes más impresionantes de Islandia durante 6 días. Incluye vuelos, hospedaje con desayuno, excursiones a géiseres, cascadas y auroras boreales.</p>
+                <p class="destino">Reikiavik y Círculo Dorado, Islandia</p>
+                <p class="precio">1970</p>
+            </div>
+        </ul>
+        <button class="carousel-btn right" onclick="scrollDestinos(0.5)">></button>
+>>>>>>> main
     </div>
 </section>
 
@@ -72,7 +128,6 @@
     </footer>
 
     <script src="js/carrusel.js"></script>
-    <script src="js/destinos.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/sesion.js"></script>
 </body>

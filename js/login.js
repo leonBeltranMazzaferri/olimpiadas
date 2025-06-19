@@ -14,9 +14,10 @@ document.querySelector('.form').addEventListener('submit', async function(e) {
 
     const data = await res.json();
     if (res.ok) {
-        mensajeDiv.style.color = "#12B1D1";
         mensajeDiv.textContent = "Login exitoso";
-        window.location.href = "user.html";
+        setTimeout(() => {
+            window.location.href = "user.html";
+        }, 1000);
     } else {
         mensajeDiv.style.color = "red";
         mensajeDiv.textContent = data.error || 'Error al iniciar sesión';

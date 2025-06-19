@@ -120,11 +120,11 @@ app.get('/api/protected', authMiddleware, (req, res) => {
     res.json({ message: '¡Acceso permitido!', user: req.user });
 });
 
-app.get('/vuelo', (req, res) => {
-    const idVuelo = parseInt(req.query.idVuelo);
-    DB.query('SELECT * FROM vuelos WHERE id_vuelo = ?', [idVuelo], (err, resultado) => {
+app.get('/api/paquetes', (req, res) => {
+
+    DB.query('SELECT * FROM paquete', (err, resultado) => {
         if (err) {
-            res.status(500).json({ error: 'Error al obtener los vuelos' });
+            res.status(500).json({ error: 'Error al obtener los paquetes' });
             return;
         }
         res.json(resultado);

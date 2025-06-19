@@ -18,7 +18,9 @@ document.getElementById('register-form').addEventListener('submit', async functi
     if (res.ok) {
         mensajeDiv.style.color = "#12B1D1";
         mensajeDiv.textContent = "¡Registro exitoso! Ahora puedes iniciar sesión.";
-        // window.location.href = "log.html"; // Descomenta si quieres redirigir automáticamente
+        setTimeout(() => {
+            window.location.href = "log.html";
+        }, 2000); // 2000 milisegundos = 2 segundos
     } else {
         mensajeDiv.style.color = "red";
         mensajeDiv.textContent = data.error || 'Error al registrar usuario';
