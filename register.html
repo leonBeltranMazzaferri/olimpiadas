@@ -10,9 +10,11 @@
     <div class="container">
         <div class="heading">Crear Cuenta</div>
         <form class="form" id="register-form">
+            <input required class="input" type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input required class="input" type="text" name="apellido" id="apellido" placeholder="Apellido">
             <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
             <input required class="input" type="password" name="password" id="password" placeholder="Contraseña">
-            <input required class="input" type="text" name="dni" id="dni" placeholder="DNI">
+            <input required class="input" type="text" name="telefono" id="telefono" placeholder="Teléfono">
             <input class="login-button" type="submit" value="Registrarse">
         </form>
         <span class="agreement">
@@ -21,26 +23,28 @@
     </div>
 
     <script>
-    document.getElementById('register-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const correo = document.getElementById('email').value;
-    const contrasena = document.getElementById('password').value;
-    const dni = document.getElementById('dni').value;
+        document.getElementById('register-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const telefono = document.getElementById('telefono').value;
 
-    const res = await fetch('http://localhost:3000/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo, contrasena, dni })
-    });
+        const res = await fetch('http://localhost:3000/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nombre, apellido, email, password, telefono })
+        });
 
-    const data = await res.json();
-        if (res.ok) {
-            alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-            window.location.href = "log.html";
-        } else {
-            alert(data.error || 'Error al registrar usuario');
-        }
-    });
+        const data = await res.json();
+            if (res.ok) {
+                alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
+                window.location.href = "log.html";
+            } else {
+                alert(data.error || 'Error al registrar usuario');
+            }
+        });
     </script>
 </body>
 </html>

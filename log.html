@@ -41,26 +41,26 @@
 
   <!-- ...existing code... -->
   <script>
-    document.querySelector('.form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const correo = document.getElementById('email').value;
-      const contrasena = document.getElementById('password').value;
+        document.querySelector('.form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-      const res = await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ correo, contrasena })
-      });
+        const res = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
 
-      const data = await res.json();
-      if (res.ok) {
-          alert('¡Login exitoso!');
-          window.location.href = "index.html";
-      } else {
-          alert(data.error || 'Error al iniciar sesión');
-      }
-    });
-  </script>
+        const data = await res.json();
+            if (res.ok) {
+                alert('¡Login exitoso!');
+                window.location.href = "index.html";
+            } else {
+                alert(data.error || 'Error al iniciar sesión');
+            }
+        });
+    </script>
 
 </body>
 </html>
