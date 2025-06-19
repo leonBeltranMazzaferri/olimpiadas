@@ -1,0 +1,13 @@
+#listaProductos {
+    overflow-y: scroll;
+    background-color: gray;
+    width: 70vmin;
+    height: 40vmin;
+}
+
+#listaPendientes {
+    overflow-y: scroll;
+    background-color: gray;
+    width: 70vmin;
+    height: 40vmin;
+}
