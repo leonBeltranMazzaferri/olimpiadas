@@ -30,7 +30,7 @@ DB.connect((err) => {
     console.log('Conectado a la base de datos!');
 });
 
-// Middleware de autenticación
+
 function authMiddleware(req, res, next) {
     const token = req.cookies.token;
     if (!token) return res.status(403).json({ error: 'No autorizado' });
@@ -44,7 +44,7 @@ function authMiddleware(req, res, next) {
     }
 }
 
-// Registro de usuario
+
 app.post('/api/register', async (req, res) => {
     const { nombre, apellido, email, password, telefono } = req.body;
     if (!nombre || !apellido || !email || !password || !telefono) {
@@ -70,7 +70,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Login de usuario
+
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -105,7 +105,7 @@ app.post('/api/login', (req, res) => {
     );
 });
 
-// Logout
+
 app.post('/api/logout', (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
@@ -115,12 +115,11 @@ app.post('/api/logout', (req, res) => {
     res.json({ success: true, message: 'Sesión cerrada' });
 });
 
-// Ruta protegida de ejemplo
+
 app.get('/api/protected', authMiddleware, (req, res) => {
     res.json({ message: '¡Acceso permitido!', user: req.user });
 });
 
-// Ejemplo de consulta de vuelo
 app.get('/vuelo', (req, res) => {
     const idVuelo = parseInt(req.query.idVuelo);
     DB.query('SELECT * FROM vuelos WHERE id_vuelo = ?', [idVuelo], (err, resultado) => {
@@ -131,6 +130,48 @@ app.get('/vuelo', (req, res) => {
         res.json(resultado);
     });
 });
+
+app.post('/api/agregarProducto', (req, res) => {
+    const { nombre, destino, descripcion, precioUnitario} = req.body
+    if (!nombre || !destino || !descripcion || !precioUnitario) {
+        return res.status(400).json({ error: 'Valores insuficientes'})
+    }
+    DB.query('INSERT INTO paquete (nombre, descripcion, precio, destino) VALUES (?, ?, ?, ?)', 
+        [nombre, descripcion, precioUnitario, destino],
+        (err) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json({ success: true, message: 'Producto agregado exitosamente.'})
+        }
+    )
+})
+
+app.get('/api/obtenerProductos', (req, res) => {
+    DB.query('SELECT * FROM paquete', 
+        (err, result) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json(result)
+        }
+    )
+})
+
+app.get('/api/obtenerPendientes', (req, res) => {
+    DB.query('SELECT * FROM compra WHERE estado = "Pendiente"', 
+        (err, result) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json(result)
+        }
+    )
+})
+
+app.get('/api/anularPedido', (req, res) => {
+    const idCompra = parseInt(req.query.id)
+    const estadoNuevo = req.query.estado
+    DB.query('UPDATE compra SET estado = ? WHERE id_compra = ?', [estadoNuevo, idCompra], 
+        (err) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json({ success: true, message: 'Estado de pedido cambiado exitosamente.'})
+        })
+})
 
 app.listen(3000, () => {
     console.log('Express escuchando en puerto 3000');
