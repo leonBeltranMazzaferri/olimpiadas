@@ -1,0 +1,63 @@
+/* Contenedor principal de la tarjeta */
+.paquete-card {
+    background: #fff; /* Fondo blanco */
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(44,0,119,0.15); /* Sombra suave */
+    padding: 24px 16px; /* Espaciado interno */
+    margin: 0 12px 24px 12px; /* Espaciado externo (abajo para separación entre tarjetas) */
+    min-width: 220px;
+    max-width: 240px;
+    min-height: 220px; /* Altura mínima para uniformidad */
+    overflow: visible; /* Permite que el contenido crezca hacia abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+    word-break: break-word; /* Rompe palabras largas */
+    white-space: normal;    /* Permite saltos de línea */
+}
+
+/* Efecto al pasar el mouse por encima */
+.paquete-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(44,0,119,0.18);
+}
+
+/* Nombre del paquete */
+.paquete-card .nombre {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c0077; /* Azul oscuro */
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+}
+
+/* Descripción del paquete */
+.paquete-card .descripcion {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+}
+
+/* Destino del paquete */
+.paquete-card .destino {
+    font-size: 1em;
+    color: #12B1D1; /* Celeste */
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+}
+
+/* Precio del paquete */
+.paquete-card .precio {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #009688; /* Verde agua */
+    margin-top: 8px;
+}
+
+/* Oculta el id del paquete (no es necesario mostrarlo) */
+.paquete-card .id_paquete {
+    display: none;
+}

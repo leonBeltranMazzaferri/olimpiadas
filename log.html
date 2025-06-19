@@ -7,7 +7,8 @@
     <title>aerolineas</title>
 </head>
 <body>
-    <div class="container">
+    <div style="display: flex; flex-direction: column;">
+        <div class="container">
         <div class="heading">Sign In</div>
         <form action="" class="form">
             <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
@@ -15,13 +16,8 @@
             <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
             <input class="login-button" type="submit" value="Sign In">
         </form>
-        <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
-        <div class="social-account-container">
-            <span class="title">Or Sign in with</span>
-            <div class="social-accounts">
-            </div>
         </div>
-        <span class="agreement"><a href="#">Learn user licence agreement</a></span>
+        <div id="mensaje" style="text-align:center; color: black; margin-top: 10px; font-size:1.2em;"></div>
     </div>
 
     <script src="./js/login.js"></script>
