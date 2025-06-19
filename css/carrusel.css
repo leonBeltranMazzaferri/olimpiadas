@@ -42,7 +42,10 @@
 }
 
 .carousel-btn.left {
+    width: 30px;
+    height: 5vh;
     left: 10px;
+    border-radius: 10px;
 }
 
 .carousel-btn.right {

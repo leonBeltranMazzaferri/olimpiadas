@@ -18,16 +18,16 @@
     <header id="header" >
         
         <nav id="nav">
-            
-            <ul  class="nav-list">
-                <img src="/img/logo/ChatGPT Image 15 jun 2025, 00_26_27.png" id="logo" alt="" >
-                <li><a href="#home">inicio</a></li>
-                <li><a href="carrito.html">MIS VIAJESa></li>
-                <li><img src="/img/iconos/user.png" alt="" ><a href="singUP.html">PERFIL(CREAR CUENTA)</a></li>
-                <li><img src="/img/iconos/user.png" alt="" ><a href="log.html">PERFIL(LOGIN)</a></li>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="/carrito.html">MIS VIAJES (CARRITO)</a></li>
+                <li id="register-link"><a href="/register.html"><img src="img/iconos/user.png">(CREAR CUENTA)</a></li>
+                <li id="login-link"><a href="/log.html"><img src="img/iconos/user.png">(LOGIN)</a></li>
+                <li id="user-link" style="display:none;"><a href="/user.html"><img src="img/iconos/user.png">(PERFIL)</a></li>
             </ul>
         </nav>
     </header>
+    <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
     
     <main>
 <section class="banner">
@@ -54,70 +54,9 @@
 <section id="destinos"> 
     <h1 class="title-catalogo" >Vuela con nosotros en los mejores destinos del mundo</h1>
     <div style="position: relative; overflow: hidden;">
-        <button class="carousel-btn left" onclick="scrollDestinos(-0.5)">❮</button>
-        <ul class="destination-list" id="carousel">
-            <li class="card" id="viaje">
-                <div class="imagen barcelona"></div>
-                <div class="info">
-                    <h3>Vuelos a Barcelona</h3>
-                    <p>Saliendo desde Buenos Aires</p>
-                    <p>Por Aerolíneas Argentinas</p>
-                    <button class="tipo-viaje">Ida y vuelta</button>
-                    <p class="precio">$499.999</p>
-                </div>
-            </li>
-            <li class="card" id="viaje">
-                <div class="imagen nueva-york"></div>
-                <div class="info">
-                    <h3>Vuelos a Nueva York</h3>
-                    <p>Saliendo desde Lima</p>
-                    <p>Por American Airlines</p>
-                    <button class="tipo-viaje">Multidestino</button>
-                    <p class="precio">$639.800</p>
-                </div>
-            </li>
-            <li class="card" id="viaje">
-                <div class="imagen roma"></div>
-                <div class="info">
-                    <h3>Vuelos a Roma</h3>
-                    <p>Saliendo desde Santiago</p>
-                    <p>Por ITA Airways</p>
-                    <button class="tipo-viaje">Ida y vuelta</button>
-                    <p class="precio">$588.200</p>
-                </div>
-            </li>
-            <li class="card" id="viaje">
-                <div class="imagen grecia"></div>
-                <div class="info">
-                    <h3>Vuelos a Grecia</h3>
-                    <p>Saliendo desde Montevideo</p>
-                    <p>Por Lufthansa</p>
-                    <button class="tipo-viaje">Ida y vuelta</button>
-                    <p class="precio">$712.350</p>
-                </div>
-            </li>
-            <li class="card" id="viaje">
-                <div class="imagen rio"></div>
-                <div class="info">
-                    <h3>Vuelos a Rio de Janeiro</h3>
-                    <p>Saliendo desde Córdoba</p>
-                    <p>Por GOL Linhas Aéreas</p>
-                    <button class="tipo-viaje">Multidestino</button>
-                    <p class="precio">$459.800</p>
-                </div>
-            </li>
-            <li class="card" id="viaje">
-                <div class="imagen moscu"></div>
-                <div class="info">
-                    <h3>Vuelos a Moscú</h3>
-                    <p>Saliendo desde Quito</p>
-                    <p>Por Turkish Airlines</p>
-                    <button class="tipo-viaje">Ida y vuelta</button>
-                    <p class="precio">$888.000</p>
-                </div>
-            </li>
-        </ul>
-        <button class="carousel-btn right" onclick="scrollDestinos(0.5)">❯</button>
+        <button class="carousel-btn.left" onclick="scrollDestinos(-0.5)">❮</button>
+
+        <button class="carousel-btn.right" onclick="scrollDestinos(0.5)">❯</button>
     </div>
 </section>
 
@@ -132,7 +71,9 @@
         </ul>
     </footer>
 
-    <script src="js/carrucel.js"></script>
-
+    <script src="js/carrusel.js"></script>
+    <script src="js/destinos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/sesion.js"></script>
 </body>
 </html>
