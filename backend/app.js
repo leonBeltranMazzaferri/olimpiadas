@@ -102,6 +102,27 @@ app.get('/api/obtenerPendientes', (req, res) => {
     )
 })
 
+app.get('/api/obtenerClientes', (req, res) => {
+    DB.query('SELECT id_usuario, nombre, apellido, email, telefono FROM usuario', 
+        (err, result) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json(result)
+        }
+    )
+})
+
+app.get('/api/obtenerPedidosCliente', (req, res) => {
+    const idCliente = parseInt(req.query.id)
+    if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
+    DB.query('SELECT * FROM compra WHERE id_usuario = ? ORDER BY fecha_compra DESC', 
+        [idCliente],
+        (err, result) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json(result)
+        }
+    )
+})
+
 app.get('/api/anularPedido', (req, res) => {
     const idCompra = parseInt(req.query.id)
     const estadoNuevo = req.query.estado

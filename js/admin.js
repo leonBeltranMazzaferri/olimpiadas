@@ -28,31 +28,36 @@ async function agregarProd(event) {
     cargarLista()
 }
 
-async function cargarLista() {
-    const listaProductos = document.querySelector("#listaProductos")
-    listaProductos.innerHTML = ''
-    const response = await fetch('http://localhost:3000/api/obtenerProductos')
-    const data = await response.json()
-    
+async function renderizarLista(contenedor, data, campos) {
+    contenedor.innerHTML = ''
+
     data?.forEach(element => {
         let divPadre = document.createElement('div')
-        divPadre.className = "producto"
+        divPadre.className = "entradaLista"
 
-        let codigoProd = document.createElement('p')
-        let nombre = document.createElement('p')
-        let descripcion = document.createElement('p') 
-        let destino = document.createElement('p')
-        let precioUnitario = document.createElement('p')
+        campos.forEach(campo => {
+            let textoHijo = document.createElement('p')
+            textoHijo.innerHTML = campo == "fecha_compra" ? element[campo].replace(/t.*/i, '') : element[campo]
+            textoHijo.className = campo
+            divPadre.append(textoHijo)
+        })
 
-        codigoProd.innerHTML = element.id_paquete
-        nombre.innerHTML = element.nombre
-        descripcion.innerHTML = element.descripcion
-        destino.innerHTML = element.destino
-        precioUnitario.innerHTML = element.precio
-        
-        divPadre.append(codigoProd, nombre, descripcion, destino, precioUnitario)
-        listaProductos.append(divPadre)
+        contenedor.append(divPadre)
     })
+}
+
+async function cargarLista() {
+    const listaProductos = document.querySelector("#listaProductos")
+    const response = await fetch('http://localhost:3000/api/obtenerProductos')
+    const data = await response.json()
+
+    await renderizarLista(listaProductos, data, [
+        "id_paquete",
+        "nombre",
+        "descripcion",
+        "destino",
+        'precio'
+    ])
 }
 
 async function cargarPendientes() {
@@ -60,35 +65,69 @@ async function cargarPendientes() {
     listaPendientes.innerHTML = ''
     const response = await fetch('http://localhost:3000/api/obtenerPendientes')
     const data = await response.json()
-    
-    data?.forEach(element => {
-        let divPadre = document.createElement('div')
-        divPadre.className = "producto"
 
-        let idCompra = document.createElement('p')
-        let idUsuario = document.createElement('p')
-        let idPaquete = document.createElement('p') 
-        let fechaCompra = document.createElement('p')
-        let estado = document.createElement('p')
+    await renderizarLista(listaPendientes, data, [
+        "id_compra",
+        "id_usuario",
+        "id_paquete",
+        "fecha_compra",
+        'estado'
+    ])
+
+    listaPendientes.childNodes.forEach(pendiente => {
         let botonAnular = document.createElement('button')
         let botonEntregar = document.createElement('button')
-
-
-        idCompra.innerHTML = element.id_compra
-        idUsuario.innerHTML = element.id_usuario
-        idPaquete.innerHTML = element.id_paquete
-        fechaCompra.innerHTML = element.fecha_compra.replace(/t.*/i, '');
-        estado.innerHTML = element.estado
-
+        let id_compra = pendiente.querySelector(".id_compra").innerHTML
+            
         botonAnular.innerHTML = "Anular pedido"
-        botonAnular.setAttribute("onclick",`cambiarEstado(${element.id_compra}, "Anulado")`)
+        botonAnular.setAttribute("onclick",`cambiarEstado(${id_compra}, "Anulado")`)
 
         botonEntregar.innerHTML = "Entregar pedido"
-        botonEntregar.setAttribute("onclick",`cambiarEstado(${element.id_compra}, "Entregado")`)
-        
-        divPadre.append(idCompra, idUsuario, idPaquete, fechaCompra, estado, botonEntregar, botonAnular)
-        listaPendientes.append(divPadre)
+        botonEntregar.setAttribute("onclick",`cambiarEstado(${id_compra}, "Entregado")`)
+            
+        pendiente.append(botonAnular, botonEntregar)
     })
+}
+
+async function cargarClientes() {
+    const listaClientes = document.querySelector("#listaClientes")
+    const response = await fetch('http://localhost:3000/api/obtenerClientes')
+    const data = await response.json()
+
+    await renderizarLista(listaClientes, data, [
+        "id_usuario",
+        "nombre",
+        "apellido",
+        "email",
+        'telefono'
+    ])
+
+    listaClientes.childNodes.forEach(cliente => {
+        cliente.addEventListener("click", () => verPedidos(cliente.querySelector(".id_usuario").innerHTML, listaClientes))
+    })
+}
+
+async function verPedidos(id_usuario, listaClientes) {
+    const response = await fetch(`http://localhost:3000/api/obtenerPedidosCliente?id=${id_usuario}`)
+    const data = await response.json()
+
+    await renderizarLista(listaClientes, data, [
+        "id_compra",
+        "id_usuario",
+        "id_paquete",
+        "fecha_compra",
+        'estado'
+    ])
+
+    let botonVolver = document.createElement('button')
+    botonVolver.addEventListener('click', () => {
+        cargarClientes()
+    })
+
+    botonVolver.innerHTML = 'Volver'
+
+    listaClientes.append(botonVolver)
+
 }
 
 async function cambiarEstado(idPedido, nuevoEstado) {
@@ -101,4 +140,5 @@ async function cambiarEstado(idPedido, nuevoEstado) {
 window.onload = async() => {
     cargarLista()
     cargarPendientes()
+    cargarClientes()
 }

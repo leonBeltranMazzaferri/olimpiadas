@@ -1,13 +1,20 @@
-#listaProductos {
+#listaProductos, #listaPendientes, #listaClientes {
     overflow-y: scroll;
     background-color: gray;
     width: 70vmin;
     height: 40vmin;
 }
 
-#listaPendientes {
-    overflow-y: scroll;
-    background-color: gray;
-    width: 70vmin;
-    height: 40vmin;
+#listaClientes .entradaLista {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#listaClientes .entradaLista:hover {
+    background-color: #fff;
+    cursor: pointer;
 }
