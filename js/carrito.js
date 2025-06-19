@@ -14,17 +14,23 @@ function agregarCarrito(id_vuelo) {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-function eliminarCarrito(elemento, id_vuelo) {
+async function eliminarCarrito(id_vuelo) {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     let indiceVuelo = carrito.indexOf(id_vuelo)
     carrito.splice(indiceVuelo, 1)
     localStorage.setItem("carrito", JSON.stringify(carrito))
+    await actualizarCarrito()
 }
 
 async function actualizarCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
+    const contenedor = document.getElementById('cart-items')
+    if (carrito.length == 0) {
+        contenedor.innerHTML = ""
+        return
+    }
+
     carrito.forEach(async id_paquete => {
-        const contenedor = document.getElementById('cart-items');
         const response = await fetch(`http://localhost:3000/api/paquete?id=${id_paquete}`);
         const data = await response.json();
         await renderizarLista(contenedor, data, [
