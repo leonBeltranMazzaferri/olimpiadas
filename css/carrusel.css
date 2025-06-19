@@ -32,7 +32,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: gray;
+    background-color: #09307F;
     border: none;
     font-size: 2rem;
     cursor: pointer;
@@ -44,11 +44,14 @@
 .carousel-btn.left {
     width: 30px;
     height: 5vh;
-    left: 10px;
+    left: 0px;
     border-radius: 10px;
 }
 
 .carousel-btn.right {
+    width: 30px;
+    height: 5vh;
+    border-radius: 10px;
     right: 10px;
 }
 
@@ -66,4 +69,12 @@
 
 #destinos div {
     display: flex;
+}
+#destinos{
+    left: 200px;
+    top: 350px;
+    position: absolute;
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
 }

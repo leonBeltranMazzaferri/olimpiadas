@@ -1,13 +1,13 @@
 /* Contenedor principal de la tarjeta */
 .paquete-card {
-    background: #fff; /* Fondo blanco */
+    background: #b0e7ff; /* Fondo blanco */
     border-radius: 16px; /* Bordes redondeados */
     box-shadow: 0 2px 8px rgba(44,0,119,0.15); /* Sombra suave */
     padding: 24px 16px; /* Espaciado interno */
     margin: 0 12px 24px 12px; /* Espaciado externo (abajo para separación entre tarjetas) */
     min-width: 220px;
     max-width: 240px;
-    min-height: 220px; /* Altura mínima para uniformidad */
+    height: 270px; /* Altura mínima para uniformidad */
     overflow: visible; /* Permite que el contenido crezca hacia abajo */
     display: flex;
     flex-direction: column;
