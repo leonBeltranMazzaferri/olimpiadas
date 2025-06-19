@@ -120,8 +120,18 @@ app.get('/api/protected', authMiddleware, (req, res) => {
     res.json({ message: '¡Acceso permitido!', user: req.user });
 });
 
-app.get('/api/paquetes', (req, res) => {
+app.get('/api/paquete', (req, res) => {
+    const id_pedido = parseInt(req.query.id)
+    DB.query('SELECT * FROM paquete WHERE id_paquete = ?', [id_pedido] , (err, resultado) => {
+        if (err) {
+            res.status(500).json({ error: 'Error al obtener los paquetes' });
+            return;
+        }
+        res.json(resultado);
+    });
+});
 
+app.get('/api/paquetes', (req, res) => {
     DB.query('SELECT * FROM paquete', (err, resultado) => {
         if (err) {
             res.status(500).json({ error: 'Error al obtener los paquetes' });
