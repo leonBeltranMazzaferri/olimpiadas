@@ -1,5 +1,4 @@
 async function renderizarLista(contenedor, data, campos, boton) {
-    contenedor.innerHTML = ''
     data?.forEach(element => {
         let divPadre = document.createElement('div')
         divPadre.className = "paquete-card"
