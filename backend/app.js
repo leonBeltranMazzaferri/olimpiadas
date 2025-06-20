@@ -4,9 +4,12 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const { MercadoPagoConfig, Preference } = require('mercadopago');
 require('dotenv').config();
 
 const app = express();
+
+const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
 
 app.use(cors({
     origin: ['http://localhost:5500', 'http://127.0.0.1:5500'],
@@ -14,6 +17,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+
 
 const DB = mysql.createConnection({
     host: 'localhost',
@@ -29,7 +33,6 @@ DB.connect((err) => {
     }
     console.log('Conectado a la base de datos!');
 });
-
 
 function authMiddleware(req, res, next) {
     const token = req.cookies.token;
@@ -203,6 +206,40 @@ app.get('/api/anularPedido', (req, res) => {
             res.json({ success: true, message: 'Estado de pedido cambiado exitosamente.'})
         })
 })
+
+app.post('/api/ObtenerPrecios', (req, res) => {
+    const ids = req.body.ids; // Espera un array de IDs en el body
+    if (!Array.isArray(ids) || ids.length === 0) {
+        return res.json({ total: 0 });
+    }
+    const placeholders = ids.map(() => '?').join(',');
+    DB.query(`SELECT precio FROM paquete WHERE id_paquete IN (${placeholders})`, ids, (err, results) => {
+        if (err) return res.status(500).json({ error: 'Error en el servidor' });
+        const total = results.reduce((sum, row) => sum + Number(row.precio), 0);
+        res.json({ total });
+    });
+});
+
+app.post('/api/crearPreferencia', async (req, res) => {
+    const { nombre, precio } = req.body;
+    try {
+        const preference = new Preference(client);
+        const result = await preference.create({
+            body: {
+                items: [
+                    {
+                        title: nombre,
+                        quantity: 1,
+                        unit_price: Number(precio)
+                    }
+                ]
+            }
+        });
+        res.json({ id: result.id, init_point: result.init_point });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear preferencia de pago' });
+    }
+});
 
 app.listen(3000, () => {
     console.log('Express escuchando en puerto 3000');
