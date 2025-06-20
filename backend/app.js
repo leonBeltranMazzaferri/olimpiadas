@@ -258,6 +258,27 @@ app.get('/api/obtenerPedidosCliente', (req, res) => {
 /**
  * Cambia el estado de un pedido (por ejemplo, a "Anulado" o "Entregado").
  */
+app.get('/api/clientePedidos', (req, res) => {
+    const idCliente = parseInt(req.query.id)
+    if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
+    DB.query('SELECT compra.id_compra, paquete.nombre AS nombre_paquete, paquete.precio AS precio_paquete, compra.fecha_compra, compra.estado FROM compra JOIN paquete ON compra.id_paquete = paquete.id_paquete WHERE compra.id_usuario = 8', 
+        [idCliente],
+        (err, result) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json(result)
+        }
+    )
+})
+
+app.get('/api/cancelarPedido', (req, res) => {
+    const idCompra = parseInt(req.query.id)
+    DB.query('UPDATE compra SET estado = "Cancelado" WHERE id_compra = ?', [idCompra], 
+        (err) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' })
+            res.json({ success: true, message: 'Estado de pedido cambiado exitosamente.'})
+        })
+})
+
 app.get('/api/anularPedido', (req, res) => {
     const idCompra = parseInt(req.query.id)
     const estadoNuevo = req.query.estado
