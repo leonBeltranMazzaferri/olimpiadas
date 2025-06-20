@@ -54,6 +54,14 @@ function authMiddleware(req, res, next) {
     }
 }
 
+function adminMiddleware(req, res, next) {
+    if (req.user && req.user.rolUser === 1) {
+        next();
+    } else {
+        return res.status(403).json({ error: 'Acceso solo para administradores' });
+    }
+}
+
 /**
  * Registro de usuario.
  * Recibe datos, valida, hashea la contraseña y guarda el usuario en la base de datos.
@@ -190,7 +198,7 @@ app.get('/api/paquetes', (req, res) => {
 /**
  * Agrega un nuevo producto (paquete) a la base de datos.
  */
-app.post('/api/agregarProducto', (req, res) => {
+app.post('/api/agregarProducto', authMiddleware, adminMiddleware, (req, res) => {
     const { nombre, destino, descripcion, precioUnitario} = req.body
     if (!nombre || !destino || !descripcion || !precioUnitario) {
         return res.status(400).json({ error: 'Valores insuficientes'})
@@ -219,7 +227,7 @@ app.get('/api/obtenerProductos', (req, res) => {
 /**
  * Obtiene todos los pedidos pendientes.
  */
-app.get('/api/obtenerPendientes', (req, res) => {
+app.get('/api/obtenerPendientes', authMiddleware, adminMiddleware, (req, res) => {
     DB.query('SELECT * FROM compra WHERE estado = "Pendiente"', 
         (err, result) => {
             if (err) return res.status(500).json({ error: 'Error en el servidor' })
@@ -231,7 +239,7 @@ app.get('/api/obtenerPendientes', (req, res) => {
 /**
  * Obtiene todos los clientes registrados.
  */
-app.get('/api/obtenerClientes', (req, res) => {
+app.get('/api/obtenerClientes', authMiddleware, adminMiddleware, (req, res) => {
     DB.query('SELECT id_usuario, nombre, apellido, email, telefono FROM usuario', 
         (err, result) => {
             if (err) return res.status(500).json({ error: 'Error en el servidor' })
@@ -243,7 +251,7 @@ app.get('/api/obtenerClientes', (req, res) => {
 /**
  * Obtiene todos los pedidos de un cliente específico.
  */
-app.get('/api/obtenerPedidosCliente', (req, res) => {
+app.get('/api/obtenerPedidosCliente', authMiddleware, adminMiddleware, (req, res) => {
     const idCliente = parseInt(req.query.id)
     if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
     DB.query('SELECT * FROM compra WHERE id_usuario = ? ORDER BY fecha_compra DESC', 
@@ -261,7 +269,7 @@ app.get('/api/obtenerPedidosCliente', (req, res) => {
 app.get('/api/clientePedidos', (req, res) => {
     const idCliente = parseInt(req.query.id)
     if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
-    DB.query('SELECT compra.id_compra, paquete.nombre AS nombre_paquete, paquete.precio AS precio_paquete, compra.fecha_compra, compra.estado FROM compra JOIN paquete ON compra.id_paquete = paquete.id_paquete WHERE compra.id_usuario = 8', 
+    DB.query('SELECT compra.id_compra, paquete.nombre AS nombre_paquete, paquete.precio AS precio_paquete, compra.fecha_compra, compra.estado FROM compra JOIN paquete ON compra.id_paquete = paquete.id_paquete WHERE compra.id_usuario = ?', 
         [idCliente],
         (err, result) => {
             if (err) return res.status(500).json({ error: 'Error en el servidor' })
@@ -270,7 +278,7 @@ app.get('/api/clientePedidos', (req, res) => {
     )
 })
 
-app.get('/api/cancelarPedido', (req, res) => {
+app.get('/api/cancelarPedido', authMiddleware, adminMiddleware, (req, res) => {
     const idCompra = parseInt(req.query.id)
     DB.query('UPDATE compra SET estado = "Cancelado" WHERE id_compra = ?', [idCompra], 
         (err) => {
@@ -279,7 +287,7 @@ app.get('/api/cancelarPedido', (req, res) => {
         })
 })
 
-app.get('/api/anularPedido', (req, res) => {
+app.get('/api/anularPedido', authMiddleware, adminMiddleware, (req, res) => {
     const idCompra = parseInt(req.query.id)
     const estadoNuevo = req.query.estado
     DB.query('UPDATE compra SET estado = ? WHERE id_compra = ?', [estadoNuevo, idCompra], 
