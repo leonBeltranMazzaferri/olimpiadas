@@ -1,3 +1,9 @@
+/**
+ * Al cargar la página de usuario, verifica si el usuario está autenticado.
+ * Muestra un mensaje de bienvenida o error según corresponda.
+ * Además, diferencia si es admin o cliente.
+ */
+
 async function cancelarPedido(idCliente, idPedido) {
     const response = await fetch(`http://localhost:3000/api/cancelarPedido?id=${idPedido}`)
     const data = await response.json();

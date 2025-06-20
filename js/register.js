@@ -1,3 +1,7 @@
+/**
+ * Maneja el envío del formulario de registro.
+ * Envía los datos al backend y muestra el resultado.
+ */
 document.getElementById('register-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const nombre = document.getElementById('nombre').value;
@@ -8,6 +12,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
     const mensajeDiv = document.getElementById('mensaje');
     mensajeDiv.textContent = ""; // Limpia mensaje anterior
 
+    // Envía los datos al backend para registrar el usuario
     const res = await fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

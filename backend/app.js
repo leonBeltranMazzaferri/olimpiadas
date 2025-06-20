@@ -9,8 +9,10 @@ require('dotenv').config();
 
 const app = express();
 
+// Configuración de MercadoPago con el token de acceso
 const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
 
+// Configuración de CORS para permitir solicitudes desde el frontend
 app.use(cors({
     origin: ['http://localhost:5500', 'http://127.0.0.1:5500'],
     credentials: true
@@ -18,7 +20,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-
+// Conexión a la base de datos MySQL
 const DB = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -26,6 +28,7 @@ const DB = mysql.createConnection({
     database: process.env.DB_NAME
 });
 
+// Verifica la conexión a la base de datos al iniciar el servidor
 DB.connect((err) => {
     if (err) {
         console.error('Error conectandose a la base de datos: ', err);
@@ -34,6 +37,10 @@ DB.connect((err) => {
     console.log('Conectado a la base de datos!');
 });
 
+/**
+ * Middleware para proteger rutas que requieren autenticación.
+ * Verifica el token JWT en las cookies.
+ */
 function authMiddleware(req, res, next) {
     const token = req.cookies.token;
     if (!token) return res.status(403).json({ error: 'No autorizado' });
@@ -47,7 +54,10 @@ function authMiddleware(req, res, next) {
     }
 }
 
-
+/**
+ * Registro de usuario.
+ * Recibe datos, valida, hashea la contraseña y guarda el usuario en la base de datos.
+ */
 app.post('/api/register', async (req, res) => {
     const { nombre, apellido, email, password, telefono } = req.body;
     if (!nombre || !apellido || !email || !password || !telefono) {
@@ -73,7 +83,10 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-
+/**
+ * Login de usuario.
+ * Verifica email y contraseña, genera un token JWT y lo guarda en una cookie.
+ */
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -89,18 +102,29 @@ app.post('/api/login', (req, res) => {
             const user = results[0];
             const valid = await bcrypt.compare(password, user.contraseña);
             if (!valid) return res.status(401).json({ error: 'Contraseña incorrecta' });
+            let token;
+            if (user.admin === 1) {
+                // Token para admin, con expiración de 12h
+                token = jwt.sign(
+                    { id_usuario: user.id_usuario, email: user.email, username: user.nombre, rolUser: user.admin },
+                    process.env.SECRET_KEY,
+                    { expiresIn: '8h' }
+                );
+            } else {
+                // Token para cliente, con expiración de 24h
+                token = jwt.sign(
+                    { id_usuario: user.id_usuario, email: user.email, username: user.nombre, rolUser: user.admin },
+                    process.env.SECRET_KEY,
+                    { expiresIn: '24h' }
+                );
+            }         
 
-            const token = jwt.sign(
-                { id_usuario: user.id_usuario, email: user.email, username: user.nombre },
-                process.env.SECRET_KEY,
-                { expiresIn: '1h' }
-            );
-
+            // Guarda el token en una cookie segura
             res.cookie('token', token, {
                 httpOnly: true,
                 sameSite: 'none',
                 secure: true, 
-                maxAge: 7 * 24 * 60 * 60 * 1000
+                maxAge: 1 * 24 * 60 * 60 * 1000 // 1 día
             });
 
             res.json({ success: true, message: 'Login exitoso', token });
@@ -108,7 +132,10 @@ app.post('/api/login', (req, res) => {
     );
 });
 
-
+/**
+ * Logout de usuario.
+ * Elimina la cookie del token.
+ */
 app.post('/api/logout', (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
@@ -118,11 +145,24 @@ app.post('/api/logout', (req, res) => {
     res.json({ success: true, message: 'Sesión cerrada' });
 });
 
-
+/**
+ * Ruta protegida para comprobar autenticación.
+ * Devuelve los datos del usuario si el token es válido.
+ */
 app.get('/api/protected', authMiddleware, (req, res) => {
-    res.json({ message: '¡Acceso permitido!', user: req.user });
+    // req.user contiene los datos del token, incluyendo rolUser
+    if (req.user.rolUser === 1) {
+        // Es admin
+        res.json({ message: '¡Acceso permitido! (admin)', user: req.user, tipo: 'admin' });
+    } else {
+        // Es cliente
+        res.json({ message: '¡Acceso permitido! (cliente)', user: req.user, tipo: 'cliente' });
+    }
 });
 
+/**
+ * Obtiene un paquete por su ID.
+ */
 app.get('/api/paquete', (req, res) => {
     const id_pedido = parseInt(req.query.id)
     DB.query('SELECT * FROM paquete WHERE id_paquete = ?', [id_pedido] , (err, resultado) => {
@@ -134,6 +174,9 @@ app.get('/api/paquete', (req, res) => {
     });
 });
 
+/**
+ * Obtiene todos los paquetes.
+ */
 app.get('/api/paquetes', (req, res) => {
     DB.query('SELECT * FROM paquete', (err, resultado) => {
         if (err) {
@@ -144,6 +187,9 @@ app.get('/api/paquetes', (req, res) => {
     });
 });
 
+/**
+ * Agrega un nuevo producto (paquete) a la base de datos.
+ */
 app.post('/api/agregarProducto', (req, res) => {
     const { nombre, destino, descripcion, precioUnitario} = req.body
     if (!nombre || !destino || !descripcion || !precioUnitario) {
@@ -158,6 +204,9 @@ app.post('/api/agregarProducto', (req, res) => {
     )
 })
 
+/**
+ * Obtiene todos los productos (paquetes).
+ */
 app.get('/api/obtenerProductos', (req, res) => {
     DB.query('SELECT * FROM paquete', 
         (err, result) => {
@@ -167,6 +216,9 @@ app.get('/api/obtenerProductos', (req, res) => {
     )
 })
 
+/**
+ * Obtiene todos los pedidos pendientes.
+ */
 app.get('/api/obtenerPendientes', (req, res) => {
     DB.query('SELECT * FROM compra WHERE estado = "Pendiente"', 
         (err, result) => {
@@ -176,6 +228,9 @@ app.get('/api/obtenerPendientes', (req, res) => {
     )
 })
 
+/**
+ * Obtiene todos los clientes registrados.
+ */
 app.get('/api/obtenerClientes', (req, res) => {
     DB.query('SELECT id_usuario, nombre, apellido, email, telefono FROM usuario', 
         (err, result) => {
@@ -185,6 +240,9 @@ app.get('/api/obtenerClientes', (req, res) => {
     )
 })
 
+/**
+ * Obtiene todos los pedidos de un cliente específico.
+ */
 app.get('/api/obtenerPedidosCliente', (req, res) => {
     const idCliente = parseInt(req.query.id)
     if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
@@ -197,6 +255,9 @@ app.get('/api/obtenerPedidosCliente', (req, res) => {
     )
 })
 
+/**
+ * Cambia el estado de un pedido (por ejemplo, a "Anulado" o "Entregado").
+ */
 app.get('/api/clientePedidos', (req, res) => {
     const idCliente = parseInt(req.query.id)
     if (!idCliente) return res.status(400).json({ error: 'Valores insuficientes'})
@@ -228,6 +289,10 @@ app.get('/api/anularPedido', (req, res) => {
         })
 })
 
+/**
+ * Calcula el precio total de varios paquetes dados sus IDs.
+ * Espera un array de IDs en el body.
+ */
 app.post('/api/ObtenerPrecios', (req, res) => {
     const ids = req.body.ids; // Espera un array de IDs en el body
     if (!Array.isArray(ids) || ids.length === 0) {
@@ -241,6 +306,9 @@ app.post('/api/ObtenerPrecios', (req, res) => {
     });
 });
 
+/**
+ * Crea una preferencia de pago en MercadoPago y devuelve el enlace de pago.
+ */
 app.post('/api/crearPreferencia', async (req, res) => {
     const { nombre, precio } = req.body;
     try {
@@ -262,6 +330,7 @@ app.post('/api/crearPreferencia', async (req, res) => {
     }
 });
 
+// Inicia el servidor en el puerto 3000
 app.listen(3000, () => {
     console.log('Express escuchando en puerto 3000');
 });
