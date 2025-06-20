@@ -81,7 +81,9 @@ async function cargarLista() {
 async function cargarPendientes() {
     const listaPendientes = document.querySelector("#listaPendientes")
     listaPendientes.innerHTML = ''
-    const response = await fetch('http://localhost:3000/api/obtenerPendientes')
+    const response = await fetch('http://localhost:3000/api/obtenerPendientes', {
+        credentials: "include"
+    });
     const data = await response.json()
 
     await renderizarLista(listaPendientes, data, [
@@ -114,7 +116,9 @@ async function cargarPendientes() {
  */
 async function cargarClientes() {
     const listaClientes = document.querySelector("#listaClientes")
-    const response = await fetch('http://localhost:3000/api/obtenerClientes')
+    const response = await fetch('http://localhost:3000/api/obtenerClientes', {
+        credentials: "include"
+    });
     const data = await response.json()
 
     await renderizarLista(listaClientes, data, [
@@ -136,7 +140,9 @@ async function cargarClientes() {
  * Permite volver a la lista de clientes.
  */
 async function verPedidos(id_usuario, listaClientes) {
-    const response = await fetch(`http://localhost:3000/api/obtenerPedidosCliente?id=${id_usuario}`)
+    const response = await fetch(`http://localhost:3000/api/obtenerPedidosCliente?id=${id_usuario}`, {
+        credentials: "include"
+    })
     const data = await response.json()
 
     await renderizarLista(listaClientes, data, [

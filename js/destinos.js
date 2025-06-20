@@ -1,4 +1,11 @@
 async function renderizarLista(contenedor, data, campos, boton) {
+    contenedor.innerHTML = ''
+
+    if (!Array.isArray(data)) {
+        alert(data.error || "Error inesperado");
+        return;
+    }
+    
     data?.forEach(element => {
         let divPadre = document.createElement('li');
         divPadre.className = "card";

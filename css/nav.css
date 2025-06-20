@@ -1,27 +1,18 @@
 .nav-list{
     list-style: none;
     margin: 0;
-    padding: 1vw;
+    padding: 0vw;
     display: flex;
     justify-content: center;
-    gap: 8vw;
+    gap: 15vw;
     align-items: center;
     max-height: 5vw;
 }
-#logo{
-    height: 8vw;
-    width: 15vw;
-}
-
 @media (max-width: 600px) {
     .nav-list {
         flex-direction: column;
         gap: 2vw;
         padding: 0.5rem;
         max-height: none;
-    }
-    #logo {
-        height: 3rem;
-        width: 6rem;
     }
 }

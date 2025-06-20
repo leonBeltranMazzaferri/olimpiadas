@@ -62,6 +62,13 @@
 .id_paquete {
     display: none;
 }
+ul.destination-list > li.card,
+ul.destination-list > li.card p {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    overflow: hidden;
+}
 
 @media (max-width: 600px) {
     #catalogo {
