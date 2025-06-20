@@ -1,7 +1,7 @@
 async function renderizarLista(contenedor, data, campos, boton) {
     data?.forEach(element => {
         let divPadre = document.createElement('li');
-        divPadre.className = "destino-item";
+        divPadre.className = "card";
 
         campos.forEach(campo => {
             let textoHijo = document.createElement('p')
@@ -23,7 +23,7 @@ async function renderizarLista(contenedor, data, campos, boton) {
 }
 
 async function cargarPaquetes() {
-    const contenedor = document.getElementById('carousel');
+    const contenedor = document.getElementById('catalogo');
     const response = await fetch('http://localhost:3000/api/paquetes');
     const data = await response.json();
     await renderizarLista(contenedor, data, [
