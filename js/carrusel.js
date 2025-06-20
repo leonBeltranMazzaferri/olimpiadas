@@ -10,7 +10,7 @@ function scrollDestinos(direction) {
 
     // Esperar a que termine el scroll (aprox)
     setTimeout(() => {
-        const items = container.querySelectorAll('.destino-item');
+        const items = container.querySelectorAll('.card');
         if (direction > 0) {
             // Mover el primero al final
             container.appendChild(items[0]);

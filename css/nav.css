@@ -4,11 +4,7 @@
     padding: 5px;
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 250px;
     align-items: center;
-    max-height: 69px;
-}
-#logo{
-    height: 140px;
-    width: 240px;
+    max-height: 90px;
 }
