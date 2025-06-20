@@ -1,5 +1,5 @@
 /* Contenedor principal de la tarjeta */
-.card {
+.destino-item {
     background: #b0e7ff; /* Fondo blanco */
     border-radius: 16px; /* Bordes redondeados */
     box-shadow: 0 2px 8px rgba(44,0,119,0.15); /* Sombra suave */
@@ -19,13 +19,13 @@
 }
 
 /* Efecto al pasar el mouse por encima */
-.card:hover {
-    transform: translateY(-8px) scale(1.03);
+.destino-item:hover {
+    transform: translateY(-8px) scale(1.1);
     box-shadow: 0 8px 24px rgba(44,0,119,0.18);
 }
 
 /* Nombre del paquete */
-.card .nombre {
+.destino-item .nombre {
     font-size: 1.2em;
     font-weight: bold;
     color: #2c0077; /* Azul oscuro */
@@ -34,7 +34,7 @@
 }
 
 /* Descripción del paquete */
-.card .descripcion {
+.destino-item .descripcion {
     font-size: 1em;
     color: #444;
     margin-bottom: 8px;
@@ -42,7 +42,7 @@
 }
 
 /* Destino del paquete */
-.card .destino {
+.destino-item .destino {
     font-size: 1em;
     color: #12B1D1; /* Celeste */
     margin-bottom: 8px;
@@ -50,7 +50,7 @@
 }
 
 /* Precio del paquete */
-.card .precio {
+.destino-item .precio {
     font-size: 1.1em;
     font-weight: bold;
     color: #009688; /* Verde agua */
@@ -58,6 +58,6 @@
 }
 
 /* Oculta el id del paquete (no es necesario mostrarlo) */
-.card .id_paquete {
+.destino-item .id_paquete {
     display: none;
 }
