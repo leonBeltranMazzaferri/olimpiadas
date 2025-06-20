@@ -12,11 +12,7 @@
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
-<<<<<<< HEAD
     background-color: rgba(115, 213, 226, 0.746);
-=======
-    background-color: rgba(176, 224, 230, 0.746);
->>>>>>> 7a1173d (cosas no muy guau)
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 .card:hover {
