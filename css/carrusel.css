@@ -5,7 +5,8 @@
     display: flex;
     flex-wrap: nowrap;
     scroll-behavior: smooth;
-    padding: 20px;
+    padding: 25px;
+    gap: 1px;
     position: relative;
     scroll-behavior: smooth; 
     overflow-x: auto;        
@@ -32,7 +33,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: gray;
+    background-color: #b0e7ff;
     border: none;
     font-size: 2rem;
     cursor: pointer;
@@ -42,11 +43,17 @@
 }
 
 .carousel-btn.left {
-    left: 10px;
+    width: 30px;
+    height: 5vh;
+    left: 0px;
+    border-radius: 10px;
 }
 
 .carousel-btn.right {
-    right: 10px;
+    width: 30px;
+    height: 5vh;
+    border-radius: 10px;
+    right: 0px;
 }
 
 .destino-item {
@@ -63,4 +70,14 @@
 
 #destinos div {
     display: flex;
+}
+#destinos{
+    left: 160px;
+    top: 400px;
+    position: absolute;
+    width: 85%;
+    padding: 20px;
+    padding-left: 40px;
+    height: auto;
+    border-radius: 10px;
 }

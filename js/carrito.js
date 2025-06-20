@@ -25,10 +25,7 @@ async function eliminarCarrito(id_paquete) {
 async function actualizarCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     const contenedor = document.getElementById('cart-items')
-    if (carrito.length == 0) {
-        contenedor.innerHTML = ""
-        return
-    }
+    contenedor.innerHTML = ""
 
     carrito.forEach(async id_paquete => {
         const response = await fetch(`http://localhost:3000/api/paquete?id=${id_paquete}`);
