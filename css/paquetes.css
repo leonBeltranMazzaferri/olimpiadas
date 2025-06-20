@@ -1,6 +1,5 @@
-
 #catalogo {
-    width: 70vmax;
+    width: 90vw;
     margin: auto;
     display: flex;
     align-items: center;
@@ -9,63 +8,70 @@
 }
 
 .card {
-    background: #b0e7ff; /* Fondo blanco */
-    border-radius: 16px; /* Bordes redondeados */
-    box-shadow: 0 2px 8px rgba(44,0,119,0.15); /* Sombra suave */
-    padding: 24px 16px; /* Espaciado interno */
-    margin: 0 12px 24px 12px; /* Espaciado externo (abajo para separación entre tarjetas) */
+    background: #b0e7ff;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(44,0,119,0.15);
+    padding: 2vw 1vw;
+    margin: 0 1vw 2vw 1vw;
     width: 30vmin;
-    height: 270px; /* Altura mínima para uniformidad */
-    overflow: visible; /* Permite que el contenido crezca hacia abajo */
+    height: 18vw;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     transition: transform 0.2s, box-shadow 0.2s;
-    word-break: break-word; /* Rompe palabras largas */
-    white-space: normal;    /* Permite saltos de línea */
+    word-break: break-word;
+    white-space: normal;
 }
 
-/* Efecto al pasar el mouse por encima */
 .destino-item:hover {
-    transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 8px 24px rgba(44,0,119,0.18);
+    transform: translateY(-0.5rem) scale(1.1);
+    box-shadow: 0 0.5rem 1.5rem rgba(44,0,119,0.18);
 }
 
-/* Nombre del paquete */
 .destino-item .nombre {
     font-size: 1.2em;
     font-weight: bold;
-    color: #2c0077; /* Azul oscuro */
-    margin-bottom: 8px;
+    color: #2c0077;
+    margin-bottom: 0.5rem;
     overflow-wrap: break-word;
 }
 
-/* Descripción del paquete */
 .destino-item .descripcion {
     font-size: 1em;
     color: #444;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     overflow-wrap: break-word;
 }
 
-/* Destino del paquete */
 .destino-item .destino {
     font-size: 1em;
-    color: #12B1D1; /* Celeste */
-    margin-bottom: 8px;
+    color: #12B1D1;
+    margin-bottom: 0.5rem;
     overflow-wrap: break-word;
 }
 
-/* Precio del paquete */
 .destino-item .precio {
     font-size: 1.1em;
     font-weight: bold;
-    color: #009688; /* Verde agua */
-    margin-top: 8px;
+    color: #009688;
+    margin-top: 0.5rem;
 }
 
-/* Oculta el id del paquete (no es necesario mostrarlo) */
 .destino-item .id_paquete {
     display: none;
+}
+
+@media (max-width: 600px) {
+    #catalogo {
+        width: 98vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90vw;
+        height: auto;
+        padding: 1rem 0.5rem;
+    }
 }

@@ -1,40 +1,40 @@
 form {
     flex-wrap: wrap;
-    gap: 15px;
-    background-color: #2c0077; /* fondo violeta */
-    padding: 30px;
-    padding-top: 5px ;
-    border-radius: 12px;
+    gap: 1.5vw;
+    background-color: #2c0077;
+    padding: 2vw;
+    padding-top: 0.5vw;
+    border-radius: 1vw;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
     width: 65%;
     position: relative;
-    top : 230px; 
-    left: 320px;
-    max-height: 180px;
+    top: 18vw;
+    left: 20vw;
+    max-height: 30vh;
 }
 form input[type="text"],
 form input[type="date"] {
-    padding: 10px 15px;
+    padding: 0.8vw 1.2vw;
     border: none;
-    border-radius: 8px;
-    min-width: 180px;
+    border-radius: 0.7vw;
+    min-width: 20vw;
     background-color: white;
     color: black;
-    font-size: 14px;
+    font-size: 1rem;
     outline: none;
 }
 
 form button[type="submit"] {
     background-color: #e50914;
-    height: 50px;
+    height: 3vw;
     color: white;
     border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
+    border-radius: 2vw;
+    padding: 0.8vw 1.5vw;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
 }
@@ -47,7 +47,7 @@ form button[type="submit"]:active {
 }
 .tipo-viaje{
     display: flex;
-    gap: 45px;
+    gap: 4vw;
     background-color: transparent;
 }
 
@@ -55,16 +55,34 @@ form button[type="submit"]:active {
     color: black;
     font-weight: 900;
     cursor: pointer;                                                                                                          
-    width: 100px;
-    height: 35px;
-    margin-bottom: 5px;
-    border: 1px solid black;
-    border-radius: 30px;
+    width: 10vw;
+    height: 3vw;
+    margin-bottom: 0.5vw;
+    border: 0.1vw solid black;
+    border-radius: 2vw;
 }
 .datos-viaje{
     display: flex;
-    gap: 15px;
+    gap: 1.5vw;
 }
 div h3{
     color: white;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 95vw;
+        left: 0;
+        top: 2vw;
+        padding: 1rem;
+        max-height: none;
+    }
+    .tipo-viaje, .datos-viaje {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #tipo-viaje {
+        width: 100%;
+        height: 2.5rem;
+    }
 }

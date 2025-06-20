@@ -3,7 +3,7 @@ document.querySelector('.form').addEventListener('submit', async function(e) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const mensajeDiv = document.getElementById('mensaje');
-    mensajeDiv.textContent = ""; // Limpia mensaje anterior
+    mensajeDiv.textContent = "";
 
     const res = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
