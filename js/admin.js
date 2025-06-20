@@ -1,3 +1,7 @@
+/**
+ * Envía el formulario para agregar un nuevo producto (paquete) al backend.
+ * Actualiza la lista de productos tras la respuesta.
+ */
 async function agregarProd(event) {
     event.preventDefault();
     let respuestaHTML = document.querySelector("#respAgregarProd")
@@ -7,6 +11,7 @@ async function agregarProd(event) {
     const precioUnitario = formData.get("precioUnitario")
     const destino = formData.get("destino")
 
+    // Envia los datos al backend
     const response = await fetch('http://localhost:3000/api/agregarProducto', {
         method: 'POST',
         headers: {
@@ -28,6 +33,12 @@ async function agregarProd(event) {
     cargarLista()
 }
 
+/**
+ * Renderiza una lista de elementos en el contenedor especificado.
+ * @param {HTMLElement} contenedor - Elemento donde se agregan los items
+ * @param {Array} data - Datos a mostrar
+ * @param {Array} campos - Campos a mostrar de cada elemento
+ */
 async function renderizarLista(contenedor, data, campos) {
     contenedor.innerHTML = ''
 
@@ -46,6 +57,9 @@ async function renderizarLista(contenedor, data, campos) {
     })
 }
 
+/**
+ * Carga y muestra la lista de productos (paquetes) desde el backend.
+ */
 async function cargarLista() {
     const listaProductos = document.querySelector("#listaProductos")
     const response = await fetch('http://localhost:3000/api/obtenerProductos')
@@ -60,6 +74,10 @@ async function cargarLista() {
     ])
 }
 
+/**
+ * Carga y muestra la lista de pedidos pendientes.
+ * Agrega botones para anular o entregar cada pedido.
+ */
 async function cargarPendientes() {
     const listaPendientes = document.querySelector("#listaPendientes")
     listaPendientes.innerHTML = ''
@@ -74,6 +92,7 @@ async function cargarPendientes() {
         'estado'
     ])
 
+    // Agrega botones de acción a cada pendiente
     listaPendientes.childNodes.forEach(pendiente => {
         let botonAnular = document.createElement('button')
         let botonEntregar = document.createElement('button')
@@ -89,6 +108,10 @@ async function cargarPendientes() {
     })
 }
 
+/**
+ * Carga y muestra la lista de clientes.
+ * Permite ver los pedidos de cada cliente al hacer clic.
+ */
 async function cargarClientes() {
     const listaClientes = document.querySelector("#listaClientes")
     const response = await fetch('http://localhost:3000/api/obtenerClientes')
@@ -102,11 +125,16 @@ async function cargarClientes() {
         'telefono'
     ])
 
+    // Permite ver los pedidos de un cliente al hacer clic
     listaClientes.childNodes.forEach(cliente => {
         cliente.addEventListener("click", () => verPedidos(cliente.querySelector(".id_usuario").innerHTML, listaClientes))
     })
 }
 
+/**
+ * Muestra los pedidos de un cliente específico.
+ * Permite volver a la lista de clientes.
+ */
 async function verPedidos(id_usuario, listaClientes) {
     const response = await fetch(`http://localhost:3000/api/obtenerPedidosCliente?id=${id_usuario}`)
     const data = await response.json()
@@ -130,6 +158,10 @@ async function verPedidos(id_usuario, listaClientes) {
 
 }
 
+/**
+ * Cambia el estado de un pedido (por ejemplo, a "Anulado" o "Entregado").
+ * Recarga la lista de pendientes tras la acción.
+ */
 async function cambiarEstado(idPedido, nuevoEstado) {
     const response = await fetch(`http://localhost:3000/api/anularPedido?id=${idPedido}&estado=${nuevoEstado}`)
     const data = await response.json();
@@ -137,6 +169,7 @@ async function cambiarEstado(idPedido, nuevoEstado) {
     cargarPendientes() 
 }
 
+// Al cargar la página, inicializa las listas de productos, pendientes y clientes
 window.onload = async() => {
     cargarLista()
     cargarPendientes()
