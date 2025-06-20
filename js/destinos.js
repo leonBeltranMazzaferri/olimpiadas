@@ -1,7 +1,7 @@
 async function renderizarLista(contenedor, data, campos, boton) {
     data?.forEach(element => {
-        let divPadre = document.createElement('div')
-        divPadre.className = "paquete-card"
+        let divPadre = document.createElement('li');
+        divPadre.className = "destino-item";
 
         campos.forEach(campo => {
             let textoHijo = document.createElement('p')
@@ -34,3 +34,5 @@ async function cargarPaquetes() {
         "precio"
     ], true);
 }
+
+window.addEventListener('DOMContentLoaded', cargarPaquetes);
