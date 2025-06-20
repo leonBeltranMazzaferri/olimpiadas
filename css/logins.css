@@ -7,40 +7,36 @@ body{
 }
 
 .container {
-  max-width: 350px;
+  max-width: 22rem;
   background: #d1d1d3;
   background: linear-gradient(0deg, rgb(201, 198, 198) 0%, rgb(225, 228, 231) 100%);
-  border-radius: 40px;
-  padding: 35px;
-  border: 5px solid linear-gradient(0deg, rgb(201, 198, 198) 0%, rgb(225, 228, 231) 100%);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-  margin: 20px;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  border: 0.3rem solid transparent;
+  box-shadow: rgba(133, 189, 215, 0.88) 0px 2rem 2rem -1.25rem;
+  margin: 1rem;
 }
 
 .heading {
   text-align: center;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 2rem;
   color: rgb(16, 137, 211);
 }
 
 .form {
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 .form .input {
   width: 90%;
   background: white;
   border: none;
-  padding: 15px 20px;
-  border-radius: 20px;
-  margin-top: 15px;
-  box-shadow: #cff0ff 0px 10px 10px -5px;
-  border-inline: 2px solid transparent;
-}
-
-.form .input::-moz-placeholder {
-  color: rgb(170, 170, 170);
+  padding: 1rem 1.2rem;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  box-shadow: #cff0ff 0px 0.6rem 0.6rem -0.3rem;
+  border-inline: 0.125rem solid transparent;
 }
 
 .form .input::placeholder {
@@ -49,17 +45,17 @@ body{
 
 .form .input:focus {
   outline: none;
-  border-inline: 2px solid #12B1D1;
+  border-inline: 0.125rem solid #12B1D1;
 }
 
 .form .forgot-password {
   display: block;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 0.6rem;
+  margin-left: 0.6rem;
 }
 
 .form .forgot-password a {
-  font-size: 11px;
+  font-size: 0.8rem;
   color: #0099ff;
   text-decoration: none;
 }
@@ -70,32 +66,32 @@ body{
   font-weight: bold;
   background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
   color: white;
-  padding-block: 15px;
-  margin: 20px auto;
-  border-radius: 20px;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  padding-block: 1rem;
+  margin: 1rem auto;
+  border-radius: 1.2rem;
+  box-shadow: rgba(133, 189, 215, 0.88) 0px 1.2rem 0.6rem -0.9rem;
   border: none;
   transition: all 0.2s ease-in-out;
 }
 
 .form .login-button:hover {
   transform: scale(1.03);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+  box-shadow: rgba(133, 189, 215, 0.88) 0px 1.4rem 0.6rem -1.2rem;
 }
 
 .form .login-button:active {
   transform: scale(0.95);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+  box-shadow: rgba(133, 189, 215, 0.88) 0px 0.9rem 0.6rem -0.6rem;
 }
 
 .social-account-container {
-  margin-top: 25px;
+  margin-top: 1.5rem;
 }
 
 .social-account-container .title {
   display: block;
   text-align: center;
-  font-size: 10px;
+  font-size: 0.7rem;
   color: rgb(170, 170, 170);
 }
 
@@ -103,20 +99,20 @@ body{
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 5px;
+  gap: 1rem;
+  margin-top: 0.3rem;
 }
 
 .social-account-container .social-accounts .social-button {
   background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
-  border: 5px solid white;
-  padding: 5px;
+  border: 0.3rem solid white;
+  padding: 0.3rem;
   border-radius: 50%;
-  width: 40px;
+  width: 2.5rem;
   aspect-ratio: 1;
   display: grid;
   place-content: center;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+  box-shadow: rgba(133, 189, 215, 0.88) 0px 0.75rem 0.6rem -0.5rem;
   transition: all 0.2s ease-in-out;
 }
 
@@ -136,11 +132,30 @@ body{
 .agreement {
   display: block;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 .agreement a {
   text-decoration: none;
   color: #0099ff;
-  font-size: 9px;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  .heading {
+    font-size: 1.2rem;
+  }
+  .form .input {
+    padding: 0.7rem 0.8rem;
+    font-size: 1rem;
+  }
+  .form .login-button {
+    padding-block: 0.7rem;
+    font-size: 1rem;
+  }
 }

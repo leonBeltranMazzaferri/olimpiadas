@@ -1,23 +1,24 @@
 .title-catalogo{
     text-align: left;
     font-size: 2rem;
-    margin: 30px 10px 0 20px;
+    margin: 2vw 1vw 0 2vw;
     color: snow;
 }
 
 .paquete-card {
-    width: 300px;
-    height: 350px;
+    width: 20vw;
+    height: 28vw;
     display: flex;
-    border-radius: 10px;
+    flex-direction: column;
+    border-radius: 1vw;
     overflow: hidden;
-    background-color: rgba(176, 224, 230, 0.746);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(115, 213, 226, 0.75);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
 }
 .card:hover {
     transform: scale(1.05);
     transition: transform 0.4s ease;
-    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.571);
+    box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.57);
 }
 
 .imagen {
@@ -27,7 +28,7 @@
 }
 
 .info {
-    padding: 10px;
+    padding: 1vw;
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
@@ -35,18 +36,35 @@
 .tipo-viaje {
     background-color: #f0f0f0;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 0.5vw 1vw;
+    border-radius: 0.5vw;
     font-weight: bold;
     width: fit-content;
-    margin: 5px 0;
+    margin: 0.5vw 0;
 }
 
 .precio {
     font-size: 1.5rem;
     font-weight: bold;
     color: #222;
-    margin-top: 20px;
+    margin-top: 2vw;
 }
 
-
+@media (max-width: 600px) {
+    .title-catalogo {
+        font-size: 1.2rem;
+        margin: 1rem 0.5rem 0 1rem;
+    }
+    .paquete-card {
+        width: 90vw;
+        height: auto;
+        min-height: 18rem;
+    }
+    .info {
+        padding: 0.5rem;
+    }
+    .precio {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+}

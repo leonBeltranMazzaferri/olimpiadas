@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Usuario</title>
-    <link rel="stylesheet" href="css/logins.css">
+    <link rel="stylesheet" href="./css/logins.css">
+    <link rel="stylesheet" href="./css/paquetes.css">
 </head>
 <body>
     <div class="container">
         <div class="heading">Bienvenido</div>
         <div id="mensaje" style="text-align:center; color: #12B1D1; margin-top: 10px;"></div>
+        <h2>Tus pedidos</h2>
+        <div id="pedidos"></div>
         <button id="logout-btn" class="login-button" style="margin-top:20px;">Cerrar sesión</button>
         <button id="btn-back">Volver</button>
     </div>
-    <script src="js/user.js"></script>
+    <script src="./js/user.js"></script>
     <script>
         // Cerrar sesión
         document.getElementById('logout-btn').addEventListener('click', async function() {

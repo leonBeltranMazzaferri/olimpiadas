@@ -1,0 +1,88 @@
+form {
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    background-color: #2c0077;
+    padding: 2vw;
+    padding-top: 0.5vw;
+    border-radius: 1vw;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    width: 65%;
+    position: relative;
+    top: 18vw;
+    left: 20vw;
+    max-height: 30vh;
+}
+form input[type="text"],
+form input[type="date"] {
+    padding: 0.8vw 1.2vw;
+    border: none;
+    border-radius: 0.7vw;
+    min-width: 20vw;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+}
+
+form button[type="submit"] {
+    background-color: #e50914;
+    height: 3vw;
+    color: white;
+    border: none;
+    border-radius: 2vw;
+    padding: 0.8vw 1.5vw;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #cc0812;
+}
+form button[type="submit"]:active {
+    background-color: #b00710;
+}
+.tipo-viaje{
+    display: flex;
+    gap: 4vw;
+    background-color: transparent;
+}
+
+#tipo-viaje{
+    color: black;
+    font-weight: 900;
+    cursor: pointer;                                                                                                          
+    width: 10vw;
+    height: 3vw;
+    margin-bottom: 0.5vw;
+    border: 0.1vw solid black;
+    border-radius: 2vw;
+}
+.datos-viaje{
+    display: flex;
+    gap: 1.5vw;
+}
+div h3{
+    color: white;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 95vw;
+        left: 0;
+        top: 2vw;
+        padding: 1rem;
+        max-height: none;
+    }
+    .tipo-viaje, .datos-viaje {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #tipo-viaje {
+        width: 100%;
+        height: 2.5rem;
+    }
+}
