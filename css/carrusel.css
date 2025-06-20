@@ -3,7 +3,7 @@
     overflow-y: hidden;
     white-space: nowrap;
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
     scroll-behavior: smooth;
     padding: 25px;
     gap: 1px;
@@ -13,6 +13,9 @@
     white-space: nowrap;    
     scrollbar-width: none;   
     -ms-overflow-style: none; 
+}
+#carousel {
+    display: flex;
 }
 .destination-list::-webkit-scrollbar {
     display: none;
