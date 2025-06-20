@@ -2,6 +2,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.5.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.8.0"
   }
 }

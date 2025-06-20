@@ -2,21 +2,21 @@ if (localStorage.getItem("carrito") == undefined) {
     localStorage.setItem("carrito", JSON.stringify([]))
 }
 
-function agregarCarrito(id_vuelo) {
+function agregarCarrito(id_paquete) {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
 
-    if(carrito.includes(id_vuelo)){
+    if(carrito.includes(id_paquete)){
         alert("Este vuelo ya esta en el carrito!")
         return
     }
 
-    carrito.push(id_vuelo)
+    carrito.push(id_paquete)
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-async function eliminarCarrito(id_vuelo) {
+async function eliminarCarrito(id_paquete) {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
-    let indiceVuelo = carrito.indexOf(id_vuelo)
+    let indiceVuelo = carrito.indexOf(id_paquete)
     carrito.splice(indiceVuelo, 1)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     await actualizarCarrito()
@@ -41,6 +41,38 @@ async function actualizarCarrito() {
             "precio"
         ], false);        
     })
+}
+
+async function sumarPecios() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"));
+    const response = await fetch('http://localhost:3000/api/ObtenerPrecios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: carrito })
+    });
+    const data = await response.json();
+    console.log("Total del carrito:", data.total);
+    return data.total;
+}
+
+async function crearPreferencia() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"));
+    if (carrito.length == 0) {
+        alert("El carrito está vacío, no se puede crear una preferencia de pago.")
+        return
+    }
+    const total = await sumarPecios();
+    const response = await fetch('http://localhost:3000/api/crearPreferencia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            nombre: "Compra de paquetes",
+            precio: total
+        })
+    })
+    console.log("Preferencia creada con éxito:", response);
+    const data = await response.json();
+    window.location.href = data.init_point;
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
