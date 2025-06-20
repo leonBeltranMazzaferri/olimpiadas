@@ -2,9 +2,35 @@ if (localStorage.getItem("carrito") == undefined) {
     localStorage.setItem("carrito", JSON.stringify([]))
 }
 
-function agregarCarrito(id_paquete) {
+async function comprobarCuenta() {
+    let autenticado
+    await fetch('http://localhost:3000/api/protected', {
+        method: 'GET',
+        credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.user) {
+            autenticado = true
+        } else {
+            autenticado = false
+        }}
+    )
+    .catch(() => {
+        // Si hay error, asume que no está autenticado
+        document.getElementById('login-link').style.display = '';
+        document.getElementById('user-link').style.display = 'none';
+    });
+    return autenticado
+}
+
+async function agregarCarrito(id_paquete) {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
 
+    if(! await comprobarCuenta()) {
+        alert("Para realizar esta accion se necesita una cuenta!")
+        return
+    }
     if(carrito.includes(id_paquete)){
         alert("Este vuelo ya esta en el carrito!")
         return
