@@ -53,7 +53,13 @@ async function actualizarCarrito() {
     const contenedor = document.getElementById('cart-items')
     contenedor.innerHTML = ""
 
+    if (!carrito || carrito.length === 0) {
+        contenedor.innerHTML = "<li>El carrito está vacío.</li>";
+        return;
+    }
+
     carrito.forEach(async id_paquete => {
+        if (!id_paquete) return; // <-- ignora ids nulos o vacíos
         const response = await fetch(`http://localhost:3000/api/paquete?id=${id_paquete}`);
         const data = await response.json();
         await renderizarLista(contenedor, data, [
@@ -106,4 +112,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     await actualizarCarrito()
+
+    // NUEVO: Agrega el event listener para el botón de compra
+    const checkoutBtn = document.getElementById('checkout-button');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', crearPreferencia);
+    }
 });
