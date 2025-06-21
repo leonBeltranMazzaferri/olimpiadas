@@ -1,6 +1,6 @@
 #footer{
-    background-color: #f8f9fa;
-    color: #6c757d;
+    background-color: #285093;
+    color: white;
     padding: 2vw 1vw;
     text-align: center;
     font-size: 1rem;
@@ -14,11 +14,12 @@
     box-shadow:rgba(0, 0, 0, 0.3) 0px -1px 1px 0px;
 }
 .social-media{
+    color: white;
     list-style: none;
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 8vw;
+    gap: 100px;
 }
 
 @media (max-width: 600px) {

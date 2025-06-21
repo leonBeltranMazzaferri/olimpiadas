@@ -6,7 +6,7 @@
     align-items: center;
     scroll-behavior: smooth;
     padding: 25px;
-    gap: 1px;
+    gap: 10px;
     position: relative;
     scroll-behavior: smooth; 
     overflow-x: auto;        
@@ -64,7 +64,6 @@
     border-radius: 10px;
     right: 0px;
 }
-
 .destino-item {
     display: flex;
     flex-flow: column;
@@ -77,9 +76,6 @@
     padding-bottom: 10vmin;
 }
 
-#destinos div {
-    display: flex;
-}
 #destinos{
     left: 160px;
     top: 400px;
@@ -90,3 +86,4 @@
     height: auto;
     border-radius: 10px;
 }
+
