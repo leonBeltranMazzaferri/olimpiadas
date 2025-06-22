@@ -344,6 +344,16 @@ app.post('/api/ObtenerPrecios', (req, res) => {
     });
 });
 
+app.post('/api/realizarPedido', authMiddleware, (req, res) => {
+    const ids = req.body.id_paquetes
+    const idCliente = req.user.id_usuario
+    ids.forEach(paquete => {
+        DB.query('INSERT INTO compra (id_usuario, id_paquete, fecha_compra, estado) VALUES (?, ?, NOW(), "Pendiente")', [idCliente, paquete], (err) => {
+            if (err) return res.status(500).json({ error: 'Error en el servidor' });
+        })
+    });
+})
+
 /**
  * Crea una preferencia de pago en MercadoPago y devuelve el enlace de pago.
  */
