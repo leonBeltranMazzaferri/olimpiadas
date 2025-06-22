@@ -48,7 +48,7 @@ async function renderizarLista(contenedor, data, campos) {
 
         campos.forEach(campo => {
             let textoHijo = document.createElement('p')
-            textoHijo.innerHTML = campo == "fecha_compra" ? element[campo].replace(/t.*/i, '') : element[campo]
+            textoHijo.innerHTML = `${campo.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}: ` + (campo == "fecha_compra" ? element[campo].replace(/t.*/i, '') : element[campo])
             textoHijo.className = campo
             divPadre.append(textoHijo)
         })
@@ -101,10 +101,10 @@ async function cargarPendientes() {
         let id_compra = pendiente.querySelector(".id_compra").innerHTML
             
         botonAnular.innerHTML = "Anular pedido"
-        botonAnular.setAttribute("onclick",`cambiarEstado(${id_compra}, "Anulado")`)
+        botonAnular.setAttribute("onclick",`cambiarEstado(${pendiente.querySelector(".id_compra").innerHTML.match(/\d+/)}, "Anulado")`)
 
         botonEntregar.innerHTML = "Entregar pedido"
-        botonEntregar.setAttribute("onclick",`cambiarEstado(${id_compra}, "Entregado")`)
+        botonEntregar.setAttribute("onclick",`cambiarEstado(${pendiente.querySelector(".id_compra").innerHTML.match(/\d+/)}, "Entregado")`)
             
         pendiente.append(botonAnular, botonEntregar)
     })
@@ -131,7 +131,7 @@ async function cargarClientes() {
 
     // Permite ver los pedidos de un cliente al hacer clic
     listaClientes.childNodes.forEach(cliente => {
-        cliente.addEventListener("click", () => verPedidos(cliente.querySelector(".id_usuario").innerHTML, listaClientes))
+        cliente.setAttribute("onclick", `verPedidos(${cliente.querySelector(".id_usuario").innerHTML.match(/\d+/)})`)
     })
 }
 
@@ -139,7 +139,8 @@ async function cargarClientes() {
  * Muestra los pedidos de un cliente específico.
  * Permite volver a la lista de clientes.
  */
-async function verPedidos(id_usuario, listaClientes) {
+async function verPedidos(id_usuario) {
+    const listaClientes = document.querySelector("#listaClientes")
     const response = await fetch(`http://localhost:3000/api/obtenerPedidosCliente?id=${id_usuario}`, {
         credentials: "include"
     })
