@@ -1,0 +1,102 @@
+#catalogo {
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    bottom: 520px;
+
+}
+#catalogo h1{
+  font-size: 3.7em; 
+  margin-bottom: 60px;
+  text-shadow: 0px 0px 5px rgba(53, 98, 170, 0.976);
+}
+  #imagen-viaje {
+    /* Posición y tamaño */
+    position: relative;
+    bottom: 420px ;
+    width: 500px;
+    height: 750px;
+    /* Sombra negra sutil */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.597);
+    border-radius: 30px;
+    background-position: right;
+    right: -1300px;
+  }
+    /* 2. Aplicación de la animación a la imagen */
+  #imagen-viaje {
+    animation-name: aparecerDesplazandose;
+    animation-duration: 1.0s; /* Duración de la animación */
+    animation-timing-function: ease-out; /* Hace que el final sea más suave */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+  }
+  #viaje-banner {
+    position: absolute;
+    left: 50px;
+    top: 820px;
+    width: 1200px;
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.516);
+  }
+
+    #viaje-banner {
+    animation-name: aparecerDesplazandose;
+    animation-duration: 0.5s; /* Duración de la animación */
+    animation-timing-function: ease-out; /* Hace que el final sea más suave */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+  }
+ /* 1. Definición de la animación */
+  @keyframes aparecerDesplazandose {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Comienza 50px más abajo */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Termina en su posición original */
+    }
+  }
+@media (max-width: 900px) {
+    #catalogo {
+        width: 98vw;
+    }
+    #viajes {
+        gap: 10px;
+    }
+    #viaje-banner {
+display: none;
+  }
+  #imagen-viaje {
+display: none;
+  }
+}
+@media (max-width: 600px) {
+    #catalogo {
+        width: 100vw;
+        padding: 0;
+    }
+    .title-catalogo {
+    font-size: 1.1rem;
+    margin: 0.5rem 0.2rem 0 0.5rem;
+  }
+  .paquete-card {
+    width: 95vw;
+    height: auto;
+    min-height: 10rem;
+  }
+  .info {
+    padding: 0.3rem;
+  }
+  .precio {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}

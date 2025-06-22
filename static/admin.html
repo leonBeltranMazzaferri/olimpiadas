@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/average.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/admin.css">
+	
+	<title>Admin table</title>
+</head>
+<body>
+	<header id="header" >
+        <nav id="nav">   
+            <ul  class="nav-list">
+                <li><a href="./index.html">INICIO</a></li>
+                <li><a href="./carrito.html">MIS VIAJES</a></li>
+                <li id="login-link">
+                    <a href="./log.html" title="Iniciar sesión"><i class="bx bxs-user"></i></a>
+                </li>
+                <li id="user-link" style="display:none;">
+                    <a href="./user.html" title="Perfil"><i class="bx bxs-user-circle">
+                </i> PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+	<!-- 1.4.1. Carga de los productos que incluyan código de producto, descripción, precio unitario. -->
+	<form onsubmit="agregarProd(event)">
+		<h3>Agregar producto</h3>
+		<p class="respuestaFormulario" id="respAgregarProd" style="display: none;"></p>
+		<input type="text" placeholder="Nombre del producto" name="nombre">
+		<input type="text" placeholder="Destino" name="destino">
+		<input type="text" placeholder="Descripcion" name="descripcion">
+		<input type="text" placeholder="Precio unitario" name="precioUnitario">
+		<input type="submit" value="Agregar producto">
+	</form>
+
+	<!-- 1.4.2. Consultar de lista de productos. -->
+	<h3>Lista de Productos</h3>
+	<div id="listaProductos">
+
+	</div>
+
+	<!-- 1.4.3. Ver estado de pedidos pendientes. -->
+	<!-- 1.4.4. Realizar la entrega de pedidos. -->
+	<!-- 1.4.6. Anular un pedido. -->
+	<h3>Lista de pedidos pendientes</h3>
+	<div id="listaPendientes"></div>
+
+	<!-- 1.4.5. Ver estado de cuenta (facturas a cobrar, ordenadas por fecha y otro estado de cuenta ordenado por cliente). -->
+	<h3>Lista de clientes</h3>
+	<div id="listaClientes"></div>
+
+	<footer id="footer" >
+        <ul class="social-media">
+            <p>&copy; 2023 Aerolinas. All rights reserved.</p>
+
+            <li><i class='bx bxl-facebook'></i>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+            </li>
+
+            <li><i class='bx bxl-twitter'></i>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a>
+            </li>
+
+            <li><i class='bx bxl-instagram'></i>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+            </li>
+        </ul>
+    </footer>
+	
+	<script src="./js/admin.js"></script>
+	<script src="./js/sesion.js"></script>
+</body>
+</html>

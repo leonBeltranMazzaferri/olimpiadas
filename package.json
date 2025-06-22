@@ -1,10 +1,22 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "boxicons": "^2.1.4",
-    "cally": "^0.8.0",
+    "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mercadopago": "^2.8.0"
+    "mercadopago": "^2.8.0",
+    "mysql2": "^3.14.1"
   }
 }

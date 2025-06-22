@@ -1,0 +1,34 @@
+.nav-list{
+    list-style: none;
+    margin: 0;
+    padding: 0vw;
+    display: flex;
+    justify-content: center;
+    gap: 15vw;
+    align-items: center;
+    max-height: 5vw;
+}
+
+.nav-list {
+  font-size: 1.15rem;
+}
+.nav-list li a {
+  font-size: 1.08em;
+}
+
+/* Responsive para nav */
+@media (max-width: 900px) {
+  .nav-list {
+    gap: 25vw;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .nav-list {
+    display: flex;
+    gap: 5vw;
+    padding: 0.5rem;
+    max-height: none;
+    font-size: 0.95rem;
+  }
+}

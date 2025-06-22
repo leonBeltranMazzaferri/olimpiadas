@@ -1,0 +1,99 @@
+.destination-list {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    scroll-behavior: smooth;
+    gap: 35px;
+    padding: 40px 60px;
+    position: relative;
+    top: -450px;
+    scroll-behavior: smooth; 
+    overflow-x: auto;        
+    white-space: nowrap;    
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;   
+    -ms-overflow-style: none; 
+    z-index: 100;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.destination-list::-webkit-scrollbar {
+    display: none;
+}
+#carousel {
+    display: flex;
+}
+.destination-list::-webkit-scrollbar {
+    display: none;
+}
+
+#viaje {
+    display: inline-block; 
+    margin-right: 20px;
+}
+
+.destination-list li {
+    display: inline-block;
+    margin-right: 20px;
+    flex: 0 0 auto;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 5px;
+    border-radius: 10%;
+}
+
+.carousel-btn.left {
+    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+.carousel-btn.right {
+    right: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+.destino-item {
+    display: flex;
+    flex-flow: column;
+    background-color: #2c0077;
+    color: white;
+    margin: 2em;
+    padding-left: 5vmin;
+    padding-right: 5vmin;
+    padding-top: 10vmin;
+    padding-bottom: 10vmin;
+}
+
+#destinos {
+    position: relative;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    padding: 30px 0 30px 0;
+    height: auto;
+    border-radius: 10px;
+    background: none;
+}
+
+/* Responsive para carrusel */
+@media (max-width: 1100px) {
+    #carousel {
+        display: none;
+    }
+}
