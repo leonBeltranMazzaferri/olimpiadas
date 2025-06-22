@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
     min-height: 100vh;
     height: 100%;
@@ -41,13 +42,20 @@ main {
     margin-top: 2vw;
 }
 
+=======
+>>>>>>> 5f804d2d01aeb556d95e6b076f29f0fe5130cd24
 #catalogo {
+    display: flex;
     width: 90vw;
     margin: auto;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+<<<<<<< HEAD
     top: 0;
+=======
+    bottom: 520px;
+>>>>>>> 5f804d2d01aeb556d95e6b076f29f0fe5130cd24
 }
 #catalogo h1{
   font-size: 3.7em; 
