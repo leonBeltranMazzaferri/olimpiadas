@@ -84,6 +84,16 @@ async function sumarPecios() {
     return data.total;
 }
 
+async function realizarPedido() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"));
+    const response = await fetch('http://localhost:3000/api/realizarPedido', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_paquetes: carrito}),
+        credentials: "include"
+    });
+}
+
 async function crearPreferencia() {
     let carrito = JSON.parse(localStorage.getItem("carrito"));
     if (carrito.length == 0) {
@@ -101,6 +111,7 @@ async function crearPreferencia() {
     })
     console.log("Preferencia creada con éxito:", response);
     const data = await response.json();
+    realizarPedido()
     window.location.href = data.init_point;
 }
 
