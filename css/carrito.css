@@ -142,13 +142,27 @@ footer, #footer {
   font-size: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+  body {
+    font-size: 1rem;
+  }
+  h1, h2, h3 {
+    font-size: 1.1rem;
+  }
   form, #listaProductos, #listaPendientes, #listaClientes, #cart-items {
     max-width: 98vw;
     padding: 1rem;
   }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95rem;
+  }
   h1, h2, h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  form, #listaProductos, #listaPendientes, #listaClientes, #cart-items {
+    max-width: 99vw;
+    padding: 0.5rem;
   }
 }
