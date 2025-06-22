@@ -1,17 +1,17 @@
 #footer{
-    background-color: #285093;
+    background-color: #284f93db;
     color: white;
     padding: 2vw 1vw;
     text-align: center;
+    align-items: center;
     font-size: 1rem;
-    border-top: 0.0625rem solid #dee2e6;
     position:  relative;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 8vh;
-    margin-top: 8vh;
-    box-shadow:rgba(0, 0, 0, 0.3) 0px -1px 1px 0px;
+    margin-top: 0vh;
+    /* box-shadow:rgba(0, 0, 0, 0.729) 0px -1px 1px 0px; */
 }
 .social-media{
     color: white;
@@ -20,6 +20,11 @@
     display: flex;
     justify-content: center;
     gap: 100px;
+}
+li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 @media (max-width: 600px) {

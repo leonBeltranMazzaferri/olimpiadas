@@ -42,7 +42,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #b0e7ff;
+    background-color: transparent;
     border: none;
     font-size: 2rem;
     cursor: pointer;

@@ -1,3 +1,5 @@
+
+
 .title-catalogo{
     text-align: left;
     font-size: 2rem;
@@ -12,13 +14,8 @@
     flex-direction: column;
     border-radius: 1vw;
     overflow: hidden;
-    background-color: rgba(115, 213, 226, 0.75);
+    background-color: rgba(115, 189, 226, 0.801);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-}
-.card:hover {
-    transform: scale(1.05);
-    transition: transform 0.4s ease;
-    box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.57);
 }
 
 .imagen {
@@ -68,3 +65,66 @@
         margin-top: 1rem;
     }
 }
+#catalogo {
+    width: 90vw;
+    margin: auto;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+  #imagen-viaje {
+    /* Posición y tamaño */
+    position: relative;
+    top: -20px;
+    width: 500px;
+    height: 650px;
+    right: -1200px;
+    margin-bottom: 100px;
+    /* Sombra negra sutil */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.597);
+    border-radius: 30px;
+    background-position: right;
+    right: -1300px;
+  }
+    /* 2. Aplicación de la animación a la imagen */
+  #imagen-viaje {
+    animation-name: aparecerDesplazandose;
+    animation-duration: 1.0s; /* Duración de la animación */
+    animation-timing-function: ease-out; /* Hace que el final sea más suave */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+  }
+  #viaje-banner {
+    position: absolute;
+    left: 50px;
+    top: 820px;
+    width: 1200px;
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.516);
+  }
+
+    #viaje-banner {
+    animation-name: aparecerDesplazandose;
+    animation-duration: 1.0s; /* Duración de la animación */
+    animation-timing-function: ease-out; /* Hace que el final sea más suave */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+  }
+
+
+ /* 1. Definición de la animación */
+  @keyframes aparecerDesplazandose {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Comienza 50px más abajo */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Termina en su posición original */
+    }
+  }
