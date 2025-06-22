@@ -60,7 +60,7 @@ h1, h2, h3 {
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
-  width: 25vmin;
+  width: 35vmin;
   gap: 0.3rem;
   position: relative;
 }
