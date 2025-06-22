@@ -8,3 +8,7 @@
 ```bash
 docker-compose up -d
 ```
+4. Para apagar el contenedor docker ejecutar el siguiente comando
+```bash
+docker-compose down
+```
