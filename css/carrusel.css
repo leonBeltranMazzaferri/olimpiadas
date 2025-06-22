@@ -92,29 +92,8 @@
 }
 
 /* Responsive para carrusel */
-@media (max-width: 900px) {
-  .destination-list {
-    gap: 6px;
-    padding: 10px;
-  }
-  .destination-list li {
-    margin-right: 10px;
-  }
+@media (max-width: 1100px) {
+    #carousel {
+        display: none;
+    }
 }
-@media (max-width: 600px) {
-  .destination-list {
-    gap: 2px;
-    padding: 5px;
-  }
-  .destination-list li {
-    margin-right: 5px;
-  }
-  #destinos {
-    left: 0;
-    top: 0;
-    width: 100vw;
-    padding: 5px;
-    position: static;
-  }
-}
-

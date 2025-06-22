@@ -4,7 +4,6 @@
 body {
   background: linear-gradient(to top, #284f93db 0%, #fff 20%);
   font-family: 'Segoe UI', Arial, sans-serif;
-  height: 124vh;
   color: #222;
 }
 
@@ -131,17 +130,6 @@ form input[type="submit"]:hover {
 #checkout-button:hover {
   background: linear-gradient(45deg, #12b1d1 0%, #1689d3 100%);
   transform: scale(1.04);
-}
-
-/* Footer */
-footer, #footer {
-  background: #284f93db;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem 0 1rem 0;
-  border-radius: 0 0 1rem 1rem;
-  margin-top: 2rem;
-  font-size: 1rem;
 }
 
 @media (max-width: 900px) {

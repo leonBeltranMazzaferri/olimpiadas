@@ -19,14 +19,14 @@
 /* Responsive para nav */
 @media (max-width: 900px) {
   .nav-list {
-    gap: 6vw;
+    gap: 25vw;
     font-size: 1rem;
   }
 }
 @media (max-width: 600px) {
   .nav-list {
-    flex-direction: column;
-    gap: 2vw;
+    display: flex;
+    gap: 5vw;
     padding: 0.5rem;
     max-height: none;
     font-size: 0.95rem;

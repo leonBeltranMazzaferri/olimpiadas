@@ -10,7 +10,7 @@
     
     <link rel="shortcut icon" href="/img/iconos/snowflake.png" type="image/x-icon">
 
-    
+    <link rel="stylesheet" href="css/average.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/carrusel.css">
     <link rel="stylesheet" href="css/paquetes.css">
-    <link rel="stylesheet" href="css/average.css">
+    
 
 </head>
 <body>
@@ -38,9 +38,7 @@
     </header>
     
     <main>
-
         <section class="banner"></section>
-
         <div id="degrade" >
             <section id="destinos"> 
                 <div style="position: relative;">
@@ -121,13 +119,11 @@
                     </ul>
                 </div>
             </section>
-
             <img src="img/YoElijoMiDestino.png" id="viaje-banner" alt="banner avion">
             <img src="img/proximo-viaje.png" alt="Icono de avión" id="imagen-viaje">
-
-            <section id="catalogo">
-            <h1>TODOS NUESTROS PAQUETES DE VIAJE</h1>   
-            <div id="viajes">
+            <section id="catalogo">   
+            <div id="boxuno" class="viajes" >
+                 <h1>TODOS NUESTROS PAQUETES DE VIAJE</h1>
                     <div class="card" id="playa">
                         <h3 class="nombre">Relax en Riviera Maya</h3>
                         <p class="descripcion">Descansá 7 días en un resort con todo incluido frente al mar.</p>
@@ -183,7 +179,7 @@
                         </div>
                     </div>
              </div>
-             <div id="viajes">
+             <div id="boxdos" class="viajes">
                     <div class="card" id="playa">
                         <h3 class="nombre">Relax en Riviera Maya</h3>
                         <p class="descripcion">Descansá 7 días en un resort con todo incluido frente al mar.</p>
@@ -239,7 +235,7 @@
                         </div>
                     </div>
              </div>
-             <div id="viajes">
+             <div id="boxtres" class="viajes">
                     <div class="card" id="playa">
                         <h3 class="nombre">Relax en Riviera Maya</h3>
                         <p class="descripcion">Descansá 7 días en un resort con todo incluido frente al mar.</p>
@@ -298,7 +294,6 @@
             </section>
         </div>
     </main>
-
     <footer id="footer" >
         <ul class="social-media">
             <p>&copy; 2023 Aerolinas. All rights reserved.</p>
@@ -316,11 +311,9 @@
             </li>
         </ul>
     </footer>
-
     <script src="./js/carrusel.js"></script>
     <script src="./js/carrito.js"></script>
     <script src="./js/sesion.js"></script>
     <script src="./js/destinos.js"></script>
-
 </body>
 </html>

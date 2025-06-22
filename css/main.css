@@ -60,13 +60,6 @@
   margin-bottom: 60px;
   text-shadow: 0px 0px 5px rgba(53, 98, 170, 0.976);
 }
-#viajes{
-  margin-top: 50px;
-  width: 100%;
-  display: flex;
-  gap: 30px;
-}
-
   #imagen-viaje {
     /* Posición y tamaño */
     position: relative;
@@ -107,9 +100,6 @@
     animation-timing-function: ease-out; /* Hace que el final sea más suave */
     animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
   }
-
-
-
  /* 1. Definición de la animación */
   @keyframes aparecerDesplazandose {
     from {
@@ -121,9 +111,26 @@
       transform: translateY(0); /* Termina en su posición original */
     }
   }
-
+@media (max-width: 900px) {
+    #catalogo {
+        width: 98vw;
+    }
+    #viajes {
+        gap: 10px;
+    }
+    #viaje-banner {
+display: none;
+  }
+  #imagen-viaje {
+display: none;
+  }
+}
 @media (max-width: 600px) {
-  .title-catalogo {
+    #catalogo {
+        width: 100vw;
+        padding: 0;
+    }
+    .title-catalogo {
     font-size: 1.1rem;
     margin: 0.5rem 0.2rem 0 0.5rem;
   }
