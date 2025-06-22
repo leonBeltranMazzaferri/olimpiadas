@@ -308,7 +308,7 @@ app.get('/api/clientePedidos', (req, res) => {
     )
 })
 
-app.get('/api/cancelarPedido', authMiddleware, adminMiddleware, (req, res) => {
+app.get('/api/cancelarPedido', authMiddleware, (req, res) => {
     const idCompra = parseInt(req.query.id)
     DB.query('UPDATE compra SET estado = "Cancelado" WHERE id_compra = ?', [idCompra], 
         (err) => {
@@ -348,8 +348,9 @@ app.post('/api/realizarPedido', authMiddleware, (req, res) => {
     const ids = req.body.id_paquetes
     const idCliente = req.user.id_usuario
     ids.forEach(paquete => {
-        DB.query('INSERT INTO compra (id_usuario, id_paquete, fecha_compra, estado) VALUES (?, ?, NOW(), "Pendiente")', [idCliente, paquete], (err) => {
-            if (err) return res.status(500).json({ error: 'Error en el servidor' });
+        DB.query('INSERT INTO compra (id_usuario, id_paquete, fecha_compra, estado) VALUES (?, ?, NOW(), "Pendiente")', [idCliente, paquete], (err, result) => {
+            if (err) console.log(err)
+            else console.log(result)
         })
     });
 })
