@@ -4,7 +4,7 @@
 body {
   background: linear-gradient(to top, #284f93db 0%, #fff 20%);
   font-family: 'Segoe UI', Arial, sans-serif;
-  height: 100vh;
+  height: 125vh;
   color: #222;
 }
 
@@ -64,6 +64,10 @@ form input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border: 2px solid #1689d3;      /* Borde azul moderno */
+  max-height: 350px;               /* Altura máxima visible */
+  overflow-y: auto;                /* Scroll vertical si hay mucho contenido */
+  overflow-x: auto;                /* Scroll horizontal si es necesario */
 }
 
 /* Items de lista */
@@ -140,13 +144,27 @@ footer, #footer {
   font-size: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+  body {
+    font-size: 1rem;
+  }
+  h1, h2, h3 {
+    font-size: 1.1rem;
+  }
   form, #listaProductos, #listaPendientes, #listaClientes, #cart-items {
     max-width: 98vw;
     padding: 1rem;
   }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95rem;
+  }
   h1, h2, h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  form, #listaProductos, #listaPendientes, #listaClientes, #cart-items {
+    max-width: 99vw;
+    padding: 0.5rem;
   }
 }

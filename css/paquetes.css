@@ -1,23 +1,108 @@
+.card {
+    background: linear-gradient(to top left, #dcdada7c, rgba(106, 206, 229, 0.72));
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.473);
+    width: 260px; /* Aumenta el ancho */
+    height: 320px; /* Aumenta la altura */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    word-break: break-word;
+    white-space: normal;
+    padding: 1.2rem 1.1rem; /* Añade padding para mejor espacio interno */
+}
 
+.card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px rgba(40, 80, 147, 0.18), 0 2px 8px rgba(0,0,0,0.13);
+}
 
+.card .nombre {
+    font-weight: bold;
+    color: #1a3359; /* Azul más profundo para mejor contraste */
+    font-size: 1.5em;
+    margin-bottom: 0.35em;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 6px #b7eaff55, 0 1px 0 #fff;
+    line-height: 1.2;
+}
 
+.card .descripcion {
+    font-size: 1.13em;
+    color: #23272f; /* Gris oscuro, mejor lectura */
+    font-weight: 500;
+    margin: 0.5em 0 0.7em 0;
+    width: 100%;
+    line-height: 1.32;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: rgba(255,255,255,0.18);
+    border-radius: 7px;
+    padding: 0.35em 0.5em;
+    text-shadow: 0 1px 0 #fff, 0 0.5px 1px #b7eaff44;
+    box-shadow: 0 1px 4px #b7eaff22;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    min-height: 5em;
+    max-height: 8em;
+    white-space: normal;
+    flex: 1 1 auto;
+}
 
+.card .destino {
+    font-size: 1.09em;
+    color: #000000; /* Rojo vibrante y elegante */
+    font-weight: 600;
+    margin-bottom: 0.22em;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 0 #fff, 0 0.5px 1px #b7eaff44;
+}
+
+.card .precio {
+    font-size: 1.22em;
+    color: #1689d3; /* Azul botones */
+    font-weight: bold;
+    margin-top: 0.5em;
+    align-self: flex-end;
+    background: linear-gradient(90deg, #e3f0fa 60%, #b7eaff 100%);
+    border-radius: 10px;
+    padding: 0.22em 1.1em;
+    box-shadow: 0 2px 8px #b7eaff33;
+    letter-spacing: 0.03em;
+    border: 1px solid #b7eaff55;
+}
+
+.id_paquete {
+    display: none;
+}
+
+/* Responsive para tarjetas de paquetes */
+@media (max-width: 900px) {
+  .card {
+    width: 90vw;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 1rem 0.7rem;
+    margin: 0.7rem auto;
+  }
+  .card .nombre { font-size: 1.12em; }
+  .card .descripcion { font-size: 0.98em; -webkit-line-clamp: 5; }
+  .card .destino { font-size: 1em; }
+  .card .precio { font-size: 1.05em; }
+}
 @media (max-width: 600px) {
-    #catalogo {
-        width: 98vw;
-        flex-direction: column;
-        align-items: center;
-    }
-    .card {
-        width: 90vw;
-        height: auto;
-        padding: 1rem 0.5rem;
-    }
-
-        .card .descripcion {
-        font-size: 1em;
-    }
-    .card .nombre {
-        font-size: 1.05em;
-    }
+  .card {
+    width: 98vw;
+    padding: 0.7rem 0.3rem;
+  }
+  .card .nombre { font-size: 1em; }
+  .card .descripcion { font-size: 0.95em; -webkit-line-clamp: 6; }
+  .card .destino { font-size: 0.97em; }
+  .card .precio { font-size: 1em; }
 }

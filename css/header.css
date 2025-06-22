@@ -5,11 +5,11 @@
     box-shadow:  0px 1px 1px 0px black;
 }
 #header h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     color: white;
 }
 #header p {
-    font-size: 1.2em;
+    font-size: 1.15em;
     color: white;
     margin-top: 1vw;
 }
@@ -32,15 +32,23 @@
 }
 
 
+/* Responsive para header */
+@media (max-width: 900px) {
+  #header h1 {
+    font-size: 1.7em;
+  }
+  #header p {
+    font-size: 1em;
+  }
+}
 @media (max-width: 600px) {
-    #header h1 {
-        font-size: 1.5em;
-    }
-    #header p {
-        font-size: 1em;
-        margin-top: 0.5rem;
-    }
-    #header {
-        padding: 0.5rem;
-    }
+  #header h1 {
+    font-size: 1.1em;
+  }
+  #header p {
+    font-size: 0.9em;
+  }
+  #header {
+    padding: 0.3rem;
+  }
 }

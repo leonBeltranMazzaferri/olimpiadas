@@ -8,11 +8,27 @@
     align-items: center;
     max-height: 5vw;
 }
+
+.nav-list {
+  font-size: 1.15rem;
+}
+.nav-list li a {
+  font-size: 1.08em;
+}
+
+/* Responsive para nav */
+@media (max-width: 900px) {
+  .nav-list {
+    gap: 6vw;
+    font-size: 1rem;
+  }
+}
 @media (max-width: 600px) {
-    .nav-list {
-        flex-direction: column;
-        gap: 2vw;
-        padding: 0.5rem;
-        max-height: none;
-    }
+  .nav-list {
+    flex-direction: column;
+    gap: 2vw;
+    padding: 0.5rem;
+    max-height: none;
+    font-size: 0.95rem;
+  }
 }

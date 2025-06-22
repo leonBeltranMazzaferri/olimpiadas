@@ -8,9 +8,3 @@
   background: linear-gradient(to top, #284f93db 0%, #fff 40%);
   padding-bottom: 10vw;
 }
-
-@media (max-width: 600px) {
-  body {
-    font-size: 0.9rem;
-  }
-}

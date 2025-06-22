@@ -16,7 +16,8 @@
     overflow: hidden;
     background-color: rgba(115, 189, 226, 0.801);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-}
+    font-size: 1.08rem;
+  }
 
 .imagen {
     height: 40%;
@@ -41,7 +42,7 @@
 }
 
 .precio {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #222;
     margin-top: 2vw;
@@ -128,3 +129,36 @@
       transform: translateY(0); /* Termina en su posición original */
     }
   }
+
+  /* Responsive para main y catálogo */
+@media (max-width: 900px) {
+  .title-catalogo {
+    font-size: 1.3rem;
+  }
+  .paquete-card {
+    width: 70vw;
+    height: auto;
+    min-height: 12rem;
+  }
+  .precio {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .title-catalogo {
+    font-size: 1.1rem;
+    margin: 0.5rem 0.2rem 0 0.5rem;
+  }
+  .paquete-card {
+    width: 95vw;
+    height: auto;
+    min-height: 10rem;
+  }
+  .info {
+    padding: 0.3rem;
+  }
+  .precio {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
