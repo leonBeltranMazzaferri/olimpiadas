@@ -4,6 +4,9 @@
   display: flex;
   gap: 30px;
 }
+#dentro{
+    display: none;
+}
 .card {
     background: linear-gradient(to top left, #dcdada7c, rgba(106, 206, 229, 0.72));
     border-radius: 10px;
@@ -175,5 +178,14 @@
         width: 50%;
         height: auto;
         padding: 1rem;
+    }
+    #fuera{
+        display: none;
+    }
+    #dentro{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
