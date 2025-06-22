@@ -8,3 +8,7 @@
   background: linear-gradient(to top, #284f93db 0%, #fff 100%);
   padding-bottom: 0vw;
 }
+html, body {
+  height: 100%;
+  width: 100%;
+}

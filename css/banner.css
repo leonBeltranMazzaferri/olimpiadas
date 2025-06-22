@@ -39,3 +39,11 @@
     background-position: center;
   }
 }
+@media (max-width: 768px) {
+  .banner {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    height: 30vh;
+    font-size: 1.2rem;
+  }
+}
