@@ -1,28 +1,23 @@
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    flex: 1 0 auto;
+}
+main {
+    flex: 1 0 auto;
+}
+
 .title-catalogo{
     text-align: left;
     font-size: 2rem;
     margin: 2vw 1vw 0 2vw;
     color: snow;
 }
-
-.paquete-card {
-    width: 20vw;
-    height: 28vw;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1vw;
-    overflow: hidden;
-    background-color: rgba(115, 189, 226, 0.801);
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-    font-size: 1.08rem;
-  }
-
-.imagen {
-    height: 40%;
-    background-size: cover;
-    background-position: center;
-}
-
 .info {
     padding: 1vw;
     display: flex;
@@ -52,12 +47,10 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    position: relative;
-    bottom: 520px;
+    top: 0;
 }
 #catalogo h1{
   font-size: 3.7em; 
-  margin-bottom: 60px;
   text-shadow: 0px 0px 5px rgba(53, 98, 170, 0.976);
 }
   #imagen-viaje {
@@ -119,11 +112,11 @@
         gap: 10px;
     }
     #viaje-banner {
-display: none;
+  display: none;
   }
-  #imagen-viaje {
-display: none;
-  }
+    #imagen-viaje {
+  display: none;
+    }
 }
 @media (max-width: 600px) {
     #catalogo {
@@ -134,11 +127,6 @@ display: none;
     font-size: 1.1rem;
     margin: 0.5rem 0.2rem 0 0.5rem;
   }
-  .paquete-card {
-    width: 95vw;
-    height: auto;
-    min-height: 10rem;
-  }
   .info {
     padding: 0.3rem;
   }
@@ -146,4 +134,23 @@ display: none;
     font-size: 1rem;
     margin-top: 0.5rem;
   }
+}
+@media (max-width: 768px) {
+  #imagen-viaje {
+  display: flex;
+  position: absolute;
+  bottom: 400px;
+  right: 60px;
+  height: 200px;
+  width: 200px;
+}
+
+  #catalogo h1{
+  position: relative;
+  top: 60px;
+  font-size: 1.3em; 
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 5px rgba(53, 98, 170, 0.976);
+  padding-right: 30px;
+}
 }

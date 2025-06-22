@@ -1,17 +1,27 @@
 .viajes{
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
   display: flex;
-  gap: 30px;
+  gap: 40px;
+}
+#boxuno{
+    margin-top: -410px;
 }
 #dentro{
     display: none;
+}
+#fuera{
+    position: relative;
+    top: -510px;
+    display: flex;
+    align-items: center;
+    font-size: small;
 }
 .card {
     background: linear-gradient(to top left, #dcdada7c, rgba(106, 206, 229, 0.72));
     border-radius: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.473);
-    width: 285px; /* Aumenta el ancho */
+    width: 350px; /* Aumenta el ancho */
     height: 320px; /* Aumenta la altura */
     display: flex;
     flex-direction: column;
@@ -228,4 +238,29 @@
     #fuera{
         display: none;
     }
+
+}
+@media (max-width: 768px) {
+    .card .nombre { font-size: 0.9em; }
+    .card .descripcion { font-size: 0.88em; text-shadow: none; }
+    .card .destino { font-size: 0.75em; }
+    .card .precio { font-size: 0.9em; width: 60%; }
+    .card .reservar-btn {font-size: 0.7em; padding: 0.1em 0.1em;}
+    .viajes {
+        top: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .card {
+        width: 55%;
+        height: auto;
+        padding: 1rem;
+    }
+    #boxuno{
+    margin-top: 100px;
+}
+    
 }
