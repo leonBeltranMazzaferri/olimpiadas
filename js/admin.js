@@ -40,8 +40,6 @@ async function agregarProd(event) {
  * @param {Array} campos - Campos a mostrar de cada elemento
  */
 async function renderizarLista(contenedor, data, campos) {
-    contenedor.innerHTML = ''
-
     data?.forEach(element => {
         let divPadre = document.createElement('div')
         divPadre.className = "entradaLista"

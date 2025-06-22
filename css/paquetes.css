@@ -36,7 +36,7 @@
     margin: 0.5em 0 0.7em 0;
     width: 100%;
     line-height: 1.32;
-    overflow: hidden;
+    overflow-y: scroll;
     text-overflow: ellipsis;
     background: rgba(255,255,255,0.18);
     border-radius: 7px;

@@ -1,6 +1,4 @@
 async function renderizarLista(contenedor, data, campos, boton) {
-    contenedor.innerHTML = ''
-
     if (!Array.isArray(data)) {
         alert(data.error || "Error inesperado");
         return;
