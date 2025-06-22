@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3{
+  text-align: center;
+}
+
 #degrade {
   background: linear-gradient(to top, #284f93db 0%, #fff 100%);
   padding-bottom: 0vw;

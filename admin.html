@@ -15,11 +15,17 @@
 	<title>Admin table</title>
 </head>
 <body>
-	    <header id="header" >
+	<header id="header" >
         <nav id="nav">   
             <ul  class="nav-list">
-                <li><a href="index.html">INICIO</a></li>
-                <li><a href="carrito.html">MIS VIAJES</a></li>
+                <li><a href="./index.html">INICIO</a></li>
+                <li><a href="./carrito.html">MIS VIAJES</a></li>
+                <li id="login-link">
+                    <a href="./log.html" title="Iniciar sesión"><i class="bx bxs-user"></i></a>
+                </li>
+                <li id="user-link" style="display:none;">
+                    <a href="./user.html" title="Perfil"><i class="bx bxs-user-circle">
+                </i> PERFIL</a></li>
             </ul>
         </nav>
     </header>
@@ -69,5 +75,6 @@
     </footer>
 	
 	<script src="./js/admin.js"></script>
+	<script src="./js/sesion.js"></script>
 </body>
 </html>

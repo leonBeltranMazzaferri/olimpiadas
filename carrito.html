@@ -18,11 +18,14 @@
    <header id="header" >
         <nav id="nav">   
             <ul  class="nav-list">
-                <li><a href="index.html">INICIO</a></li>
-                <li><a href="carrito.html">MIS VIAJES</a></li>
-                <li>
-                    <a href="log.html" title="Iniciar sesión"><i class="bx bxs-user"></i></a>
+                <li><a href="./index.html">INICIO</a></li>
+                <li><a href="./carrito.html">MIS VIAJES</a></li>
+                <li id="login-link">
+                    <a href="./log.html" title="Iniciar sesión"><i class="bx bxs-user"></i></a>
                 </li>
+                <li id="user-link" style="display:none;">
+                    <a href="./user.html" title="Perfil"><i class="bx bxs-user-circle">
+                </i> PERFIL</a></li>
             </ul>
         </nav>
     </header>
@@ -57,5 +60,6 @@
 
     <script src="./js/carrito.js"></script>
     <script src="./js/destinos.js"></script>
+    <script src="./js/sesion.js"></script>
 </body>
 </html>
