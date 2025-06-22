@@ -189,3 +189,43 @@
         width: 100%;
     }
 }
+@media (max-width: 375px) {
+    .card .nombre { font-size: 0.9em; }
+    .card .descripcion { font-size: 0.88em; text-shadow: none; }
+    .card .destino { font-size: 0.85em; }
+    .card .precio { font-size: 0.9em; }
+    .card .reservar-btn {
+        font-size: 0.9em;
+        padding: 0.2em 0.8em;
+    }
+    .viajes {
+        top: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    #boxuno{
+        margin-top: 110%;
+    }
+    #boxuno #dentro {
+        margin-top: 30px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        position: relative;
+        bottom: 0px;
+    }
+    #boxdos{
+        display: none;
+    }
+    .card {
+        width: 60%;
+        height: auto;
+        padding: 1rem;
+    }
+    #fuera{
+        display: none;
+    }
+}

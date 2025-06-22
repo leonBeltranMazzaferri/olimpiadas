@@ -5,6 +5,6 @@
 }
 
 #degrade {
-  background: linear-gradient(to top, #284f93db 0%, #fff 40%);
+  background: linear-gradient(to top, #284f93db 0%, #fff 100%);
   padding-bottom: 0vw;
 }
