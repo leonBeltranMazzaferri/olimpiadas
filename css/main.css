@@ -1,5 +1,3 @@
-
-
 .title-catalogo{
     text-align: left;
     font-size: 2rem;
@@ -48,40 +46,33 @@
     margin-top: 2vw;
 }
 
-@media (max-width: 600px) {
-    .title-catalogo {
-        font-size: 1.2rem;
-        margin: 1rem 0.5rem 0 1rem;
-    }
-    .paquete-card {
-        width: 90vw;
-        height: auto;
-        min-height: 18rem;
-    }
-    .info {
-        padding: 0.5rem;
-    }
-    .precio {
-        font-size: 1.1rem;
-        margin-top: 1rem;
-    }
-}
 #catalogo {
     width: 90vw;
     margin: auto;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+    position: relative;
+    bottom: 520px;
+}
+#catalogo h1{
+  font-size: 3.7em; 
+  margin-bottom: 60px;
+  text-shadow: 0px 0px 5px rgba(53, 98, 170, 0.976);
+}
+#viajes{
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  gap: 30px;
 }
 
   #imagen-viaje {
     /* Posición y tamaño */
     position: relative;
-    top: -20px;
+    bottom: 420px ;
     width: 500px;
-    height: 650px;
-    right: -1200px;
-    margin-bottom: 100px;
+    height: 750px;
     /* Sombra negra sutil */
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.597);
     border-radius: 30px;
@@ -112,10 +103,11 @@
 
     #viaje-banner {
     animation-name: aparecerDesplazandose;
-    animation-duration: 1.0s; /* Duración de la animación */
+    animation-duration: 0.5s; /* Duración de la animación */
     animation-timing-function: ease-out; /* Hace que el final sea más suave */
     animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
   }
+
 
 
  /* 1. Definición de la animación */
@@ -130,20 +122,6 @@
     }
   }
 
-  /* Responsive para main y catálogo */
-@media (max-width: 900px) {
-  .title-catalogo {
-    font-size: 1.3rem;
-  }
-  .paquete-card {
-    width: 70vw;
-    height: auto;
-    min-height: 12rem;
-  }
-  .precio {
-    font-size: 1.1rem;
-  }
-}
 @media (max-width: 600px) {
   .title-catalogo {
     font-size: 1.1rem;
