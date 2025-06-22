@@ -1,58 +1,10 @@
-.title-catalogo{
-    text-align: left;
-    font-size: 2rem;
-    margin: 2vw 1vw 0 2vw;
-    color: snow;
-}
-
-.paquete-card {
-    width: 20vw;
-    height: 28vw;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1vw;
-    overflow: hidden;
-    background-color: rgba(115, 189, 226, 0.801);
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-    font-size: 1.08rem;
-  }
-
-.imagen {
-    height: 40%;
-    background-size: cover;
-    background-position: center;
-}
-
-.info {
-    padding: 1vw;
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-}
-.tipo-viaje {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 0.5vw 1vw;
-    border-radius: 0.5vw;
-    font-weight: bold;
-    width: fit-content;
-    margin: 0.5vw 0;
-}
-
-.precio {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #222;
-    margin-top: 2vw;
-}
-
 #catalogo {
+    display: flex;
     width: 90vw;
     margin: auto;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    position: relative;
     bottom: 520px;
 }
 #catalogo h1{
