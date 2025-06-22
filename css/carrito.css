@@ -26,6 +26,16 @@ h1, h2, h3 {
   height: 70vmin;
 }
 
+#pedidos {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    overflow-y: scroll;
+    margin: auto;
+    width: 40vmin;
+    height: 50vmin;
+}
+
 /* Listas de productos, pendientes y clientes */
 #listaProductos, #listaPendientes, #listaClientes {
   background: #f7fafd;
@@ -42,7 +52,7 @@ h1, h2, h3 {
 }
 
 /* Items de lista */
-#listaProductos > div, #listaPendientes > div, #listaClientes > div, #cart-items > li {
+#listaProductos > div, #listaPendientes > div, #listaClientes > div, #cart-items > li, #pedidos > li {
   background: linear-gradient(to top left, #dcdada7c, rgba(106, 206, 229, 0.72));
   border-radius: 0.7rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -50,6 +60,7 @@ h1, h2, h3 {
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
+  width: 25vmin;
   gap: 0.3rem;
   position: relative;
 }
