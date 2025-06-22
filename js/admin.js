@@ -22,7 +22,8 @@ async function agregarProd(event) {
             destino,
             descripcion,
             precioUnitario
-        })
+        }),
+        credentials: "include"
     })
 
     const data = await response.json();
@@ -40,6 +41,7 @@ async function agregarProd(event) {
  * @param {Array} campos - Campos a mostrar de cada elemento
  */
 async function renderizarLista(contenedor, data, campos) {
+    contenedor.innerHTML = ''
     data?.forEach(element => {
         let divPadre = document.createElement('div')
         divPadre.className = "entradaLista"
@@ -168,7 +170,9 @@ async function verPedidos(id_usuario) {
  * Recarga la lista de pendientes tras la acción.
  */
 async function cambiarEstado(idPedido, nuevoEstado) {
-    const response = await fetch(`http://localhost:3000/api/anularPedido?id=${idPedido}&estado=${nuevoEstado}`)
+    const response = await fetch(`http://localhost:3000/api/anularPedido?id=${idPedido}&estado=${nuevoEstado}`, {
+        credentials: "include"
+    })
     const data = await response.json();
     alert(data.message || data.error)
     cargarPendientes() 

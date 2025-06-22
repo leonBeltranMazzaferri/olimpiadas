@@ -5,7 +5,9 @@
  */
 
 async function cancelarPedido(idCliente, idPedido) {
-    const response = await fetch(`http://localhost:3000/api/cancelarPedido?id=${idPedido}`)
+    const response = await fetch(`http://localhost:3000/api/cancelarPedido?id=${idPedido}`, {
+        credentials: "include"
+    })
     const data = await response.json();
     alert(data.message || data.error)
     cargarPaquetes(idCliente) 
@@ -36,7 +38,9 @@ async function renderizarLista(contenedor, data, campos, idCliente) {
 async function cargarPaquetes(id) {
     const contenedor = document.getElementById('pedidos');
     contenedor.innerHTML = ""
-    const response = await fetch(`http://localhost:3000/api/clientePedidos?id=${id}`);
+    const response = await fetch(`http://localhost:3000/api/clientePedidos?id=${id}`, {
+        credentials: "include"
+    });
     const data = await response.json();
     await renderizarLista(contenedor, data, [
         "id_compra",
