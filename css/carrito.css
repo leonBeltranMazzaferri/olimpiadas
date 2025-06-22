@@ -2,8 +2,9 @@
 
 /* Fondo general y tipografía */
 body {
+  background: linear-gradient(to top, #284f93db 0%, #fff 20%);
   font-family: 'Segoe UI', Arial, sans-serif;
-  height: 100%;
+  min-height: 100vh;
   color: #222;
 }
 main{
@@ -18,18 +19,42 @@ h1, h2, h3 {
   letter-spacing: 1px;
 }
 
-#cart-items {
+/* Formularios */
+form {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(44, 79, 147, 0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 400px;
   display: flex;
-  flex-flow: column;
-  align-items: center;
-  overflow-y: scroll;
-  margin: auto;
-  width: 50vmin;
-  height: 70vmin;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input[type="text"], form input[type="submit"] {
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #b0c4de;
+  font-size: 1rem;
+}
+
+form input[type="submit"] {
+  background: linear-gradient(45deg, #1689d3 0%, #12b1d1 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+form input[type="submit"]:hover {
+  background: linear-gradient(45deg, #12b1d1 0%, #1689d3 100%);
+  transform: scale(1.03);
 }
 
 /* Listas de productos, pendientes y clientes */
-#listaProductos, #listaPendientes, #listaClientes {
+#listaProductos, #listaPendientes, #listaClientes, #cart-items {
   background: #f7fafd;
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(44, 79, 147, 0.08);
